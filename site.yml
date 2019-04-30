@@ -1,0 +1,10 @@
+---
+- hosts: all
+  gather_facts: true
+  roles:
+  - role1
+  - my_common_role
+  tasks:
+  - debug:
+      msg: Completed all tasks
+
