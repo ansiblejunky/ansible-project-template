@@ -3,8 +3,9 @@
   gather_facts: true
   roles:
   - role1
-  - my_common_role
   tasks:
-  - debug:
+  - debug: 
       msg: Completed all tasks
+  - name: trailing whitespace
+    action: command echo do nothing    
 

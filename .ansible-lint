@@ -1,0 +1,41 @@
+# Ansible Lint - Configuration File
+
+# Ansible Lint Documentation
+# https://docs.ansible.com/ansible-lint/index.html
+
+# Configuration options operate identically to their CLI counterparts.
+# Use the `ansible-lint --help` command to list all options. 
+# Alternatively use the following link:
+# https://docs.ansible.com/ansible-lint/usage/usage.html#command-line-options
+
+# Example configuration options:
+# https://docs.ansible.com/ansible-lint/configuring/configuring.html#configuration-file
+
+# Test customized rules against the example files that are included with ansible-lint
+# 1) Customize your rules (skipped rules, custom rules, etc)
+# 2) Clone the repository:
+#    git clone https://github.com/ansible/ansible-lint.git
+# 3) Test the rules by running ansible-lint against the examples:
+#    ansible-lint ansible-lint/examples/example.yml
+# More information found here:
+# https://docs.ansible.com/ansible-lint/usage/usage.html#examples
+
+# parseable output in the format of pep8
+parseable: true
+
+# quieter, although not silent output
+quiet: true
+
+# custom rules directory
+rulesdir:
+  - ./ansible_lint/rules/
+
+# verbosity setting
+verbosity: 1
+
+# use default rules in addition to any extra rules directories specified
+use_default_rules: true
+
+skip_list:
+  - '201' # trailing whitespace allowed
+
