@@ -30,8 +30,8 @@ quiet: true
 rulesdir:
   - ./ansible_lint/rules/
 
-# verbosity setting
-verbosity: 1
+# verbosity setting (currently 0 and 1 are supported; displays `examining file` messages
+verbosity: 0
 
 # use default rules in addition to any extra rules directories specified
 use_default_rules: true

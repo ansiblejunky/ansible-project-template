@@ -1,9 +1,40 @@
 ---
+# TODO: add custom ansible-lint rule to require `name:` at play level
 - hosts: all
   gather_facts: true
+  # vars:
+  #   invalid-name: "test-play-level"
   roles:
   - role1
   tasks:
   - debug: 
       msg: Completed all tasks
+  - debug:
+      msg: Test pre-commit hook
+  # - name: test
+  #   set_fact:
+  #     myvar_Name: testvalue
+  # - name: "Test dash in name"
+  #   command: "echo {{ invalid-name }}"
+  #   vars:
+  #     invalid-name: "test"
 
+
+- hosts: all
+  gather_facts: true
+  # vars:
+  #   invalid-name: "test-play-level"
+  roles:
+  - role1
+  tasks:
+  - debug:
+      msg: Completed all tasks
+  - debug:
+      msg: Test pre-commit hook
+  # - name: test
+  #   set_fact:
+  #     myvar_Name: testvalue
+  # - name: "Test dash in name"
+  #   command: "echo {{ invalid-name }}"
+  #   vars:
+  #     invalid-name: "test"
