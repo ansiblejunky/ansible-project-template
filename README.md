@@ -2,6 +2,7 @@
 
 ## Playbooks
 
+Overall description of your playbooks goes here. Do not list every single playbook, as each playbook should be self-documenting by using `name:` at the Play level.
 
 ## Roles
 
@@ -13,6 +14,8 @@ The `roles/common/` folder can be used for roles that we want to maintain inside
 
 The `roles/galaxy/` folder is the default folder where the `ansible-galaxy` command will install all dependent roles defined by the `requirements.yml` file.  This path has been defined in the `ansible.cfg`. 
 
+An example Ansible Role repo can be found [here](https://github.com/ansiblejunky/ansible-examples-repos-role1).
+
 When testing playbooks locally, you must manually perform the `ansible-galaxy` command to install the dependent Ansible Roles into the `roles/galaxy/` folder. This can be achieved using the following command:
 ```
 ansible-galaxy install -r roles/requirements.yml
@@ -21,6 +24,26 @@ ansible-galaxy install -r roles/requirements.yml
 When testing in Ansible Tower, the dependent Ansible Roles are downloaded automatically. Ansible Tower detects the `roles/requirements.yml` file and performs the `ansible-galaxy` command automatically.
 
 It is important to note that since we are separating Ansible Playbooks and Ansible Roles in separate repositories, a Project pointing to the Ansible Playbook repo in Ansible Tower will still only check against the revision number of the Ansible Playbook repo to determine if a sync is necessary. This means if your Ansible Role repo has changed, but the Ansible Playbook repo has not, then Ansible Tower will not download the latest code from your Ansible Role repo to be used by your playbook. The solution is simple. Make sure you use tags on your revisions in your Ansible Role repos. Then you can simply update the `roles/requirements.yml` file in the Ansible Playbook repo according to the revision/tag you want to use.  That change will then trigger Ansible Tower to pull the newest Ansible Role code. This model produces a stable and controlled testing environment and is considered best practice.
+
+## Group Variables
+
+This repo contains a `group_vars` folder that includes standard connectivity variables defined for each Operating System Family. The Ansible `setup` module gathers facts about a target server and produces the `ansible_os_family` fact that describes the OS family. Therefore the filenames are named after the OS family since this is also the inventory group that our servers will be using.
+
+For example, a Windows server will be assigned to the `windows` inventory group. As a result, Ansible will automically load the `group_vars/windows.yml` file. For Windows servers, we will be using `winrm` and `kerberos` for authentication.
+
+For further information on Windows Remote Management (winrm), see this [link](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html).
+
+## Multi-Stage Variables
+
+A simple method to handle multi-stage variables (both vaulted and non-vaulted) is by using `vars_files` at the playbook level to load the appropriate environment-dependent variables. Do not do this inside an Ansible Role since roles should be environment agnostic and reusable. 
+
+```yaml
+---
+- hosts: all
+  vars_files:
+  - "vars/{{ env }}.yml"
+  - "vars/vault_{{ env }}.yml"
+```
 
 ## Ansible Lint
 
@@ -38,6 +61,13 @@ This repo uses the multi-language package manager for pre-commit hooks called [p
 ```
 pip install pre-commit
 ```
+
+## Multi-Stage Environments
+
+To address the challenge of managing multi-stage environments with Ansible, it is recommended read through the following resources. 
+
+[How to Manage Multistage Environments with Ansible](https://www.digitalocean.com/community/tutorials/how-to-manage-multistage-environments-with-ansible).
+ 
 
 ## License
 

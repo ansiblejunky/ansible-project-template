@@ -1,0 +1,5 @@
+ansible_user={{ vaulted_winrm_username }}
+ansible_password={{ vaulted_winrm_password }}
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=kerberos

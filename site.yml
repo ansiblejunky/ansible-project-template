@@ -6,6 +6,4 @@
   tasks:
   - debug: 
       msg: Completed all tasks
-  - name: trailing whitespace
-    action: command echo do nothing    
 
