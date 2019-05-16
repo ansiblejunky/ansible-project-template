@@ -1,3 +1,4 @@
+---
 # Install example role from GitHub
 - name: role1
   src: https://github.com/ansiblejunky/ansible-examples-repos-role1.git

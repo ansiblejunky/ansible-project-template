@@ -17,12 +17,14 @@ else:
         return d.iterkeys()
 
 
-# TODO: add check for registering variables on any task and recommend format `_private_var`
-# TODO: add check for using `vars` on any task
-# TODO: how to check for `vars` used at Play level?
-# TODO: how to check for vars files? 
+# TODO: check task for registered variables; recommend format `_private_var`
+# TODO: how to check vars files?
+# TODO: ensure variable names do not match one of the magic variable names
+# https://docs.ansible.com/ansible/latest/reference_appendices/special_variables.html#special-variables
+# Provide comment on following open issue:
+# [Ansible-lint does not catch invalid variable names](https://github.com/ansible/ansible-lint/issues/447)
 
-# TIP: Use the following print statement to format the method params 
+# TIP: Use the following print statement to format the method params
 #      and to understand the structure of tasks, etc
 #      print(json.dumps(play, sort_keys=True, indent=4))
 
@@ -65,7 +67,7 @@ class VariableNaming(AnsibleLintRule):
 
     def matchtask(self, file, task):
       ansible_module = task['action']['__ansible_module__']
-    
+
       # If the task uses the `vars` section to set variables
       if 'vars' in iterkeys(task):
         if has_invalid_variables(task['vars']):

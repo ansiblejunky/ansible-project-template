@@ -6,13 +6,13 @@ Overall description of your playbooks goes here. Do not list every single playbo
 
 ## Roles
 
-This repo contains a `roles` folder that includes a `requirements.yml`. It defines the Ansible Role dependencies that is used by the `ansible-galaxy` command. 
+This repo contains a `roles` folder that includes a `requirements.yml`. It defines the Ansible Role dependencies that is used by the `ansible-galaxy` command.
 
 Two folders have been created to hold Ansible Roles for organizational purposes. The `ansible.cfg` has been modified to tell Ansible to search within these two folders for Ansible Roles.
 
 The `roles/common/` folder can be used for roles that we want to maintain inside this playbook repo. This is generally not recommended, however it is available for exceptions.
 
-The `roles/galaxy/` folder is the default folder where the `ansible-galaxy` command will install all dependent roles defined by the `requirements.yml` file.  This path has been defined in the `ansible.cfg`. 
+The `roles/galaxy/` folder is the default folder where the `ansible-galaxy` command will install all dependent roles defined by the `requirements.yml` file.  This path has been defined in the `ansible.cfg`.
 
 An example Ansible Role repo can be found [here](https://github.com/ansiblejunky/ansible-examples-repos-role1).
 
@@ -29,13 +29,13 @@ It is important to note that since we are separating Ansible Playbooks and Ansib
 
 This repo contains a `group_vars` folder that includes standard connectivity variables defined for each Operating System Family. The Ansible `setup` module gathers facts about a target server and produces the `ansible_os_family` fact that describes the OS family. Therefore the filenames are named after the OS family since this is also the inventory group that our servers will be using.
 
-For example, a Windows server will be assigned to the `windows` inventory group. As a result, Ansible will automically load the `group_vars/windows.yml` file. For Windows servers, we will be using `winrm` and `kerberos` for authentication.
+For example, a Windows server will be assigned to the `windows` inventory group. As a result, Ansible will automatically load the `group_vars/windows.yml` file. For Windows servers, the recommended authentication method uses `winrm` transport and `kerberos` authentication.
 
 For further information on Windows Remote Management (winrm), see this [link](https://docs.ansible.com/ansible/latest/user_guide/windows_winrm.html).
 
 ## Multi-Stage Variables
 
-A simple method to handle multi-stage variables (both vaulted and non-vaulted) is by using `vars_files` at the playbook level to load the appropriate environment-dependent variables. Do not do this inside an Ansible Role since roles should be environment agnostic and reusable. 
+A simple method to handle multi-stage variables (both vaulted and non-vaulted) is by using `vars_files` at the playbook level to load the appropriate environment-dependent variables. Do not do this inside an Ansible Role since roles should be environment agnostic and reusable.
 
 ```yaml
 ---
@@ -45,7 +45,11 @@ A simple method to handle multi-stage variables (both vaulted and non-vaulted) i
   - "vars/vault_{{ env }}.yml"
 ```
 
-## Ansible Lint
+## Continuous Integration
+
+This repo implements various mechanisms to ensure we "Fail early and fail fast" using CI tools such as ansible-lint, pre-commit as well as others.
+
+### Ansible Lint
 
 This repo uses [Ansible Lint](https://docs.ansible.com/ansible-lint/) to perform various lint tests on YAML files.
 
@@ -55,19 +59,40 @@ Additionally, Ansible Lint allows for custom rules written in Python script. The
 
 https://docs.ansible.com/ansible-lint/rules/rules.html#creating-custom-rules
 
-## Pre-Commit Hooks
+### Pre-Commit Hooks
 
-This repo uses the multi-language package manager for pre-commit hooks called [pre-commit](https://pre-commit.com/). Before you can run hooks, you need to have the pre-commit package manager installed.
+This repo uses the multi-language package manager for pre-commit hooks called [pre-commit](https://pre-commit.com/). To setup the `pre-commit` package manager follow these steps.
+
+Install the `pre-commit` software
 ```
 pip install pre-commit
 ```
 
+Prepare the `pre-commit` configuration file by editing the `.pre-commit-config.yaml` file in the root of your repo. Add the following information to define our hooks:
+
+```yaml
+repos:
+- repo: https://github.com/ansible/ansible-lint.git
+  rev: v4.1.0a0
+  hooks:
+    - id: ansible-lint
+      files: \.(yaml|yml)$
+```
+
+To install pre-commit into your git hooks
+```
+pre-commit install
+```
+
+pre-commit will now run on every commit. Every time you clone a project using pre-commit running `pre-commit install` should always be the first thing you do.
+
+
 ## Multi-Stage Environments
 
-To address the challenge of managing multi-stage environments with Ansible, it is recommended read through the following resources. 
+To address the challenge of managing multi-stage environments with Ansible, it is recommended read through the following resources.
 
 [How to Manage Multistage Environments with Ansible](https://www.digitalocean.com/community/tutorials/how-to-manage-multistage-environments-with-ansible).
- 
+
 
 ## License
 

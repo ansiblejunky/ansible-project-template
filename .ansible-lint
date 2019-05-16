@@ -4,7 +4,7 @@
 # https://docs.ansible.com/ansible-lint/index.html
 
 # Configuration options operate identically to their CLI counterparts.
-# Use the `ansible-lint --help` command to list all options. 
+# Use the `ansible-lint --help` command to list all options.
 # Alternatively use the following link:
 # https://docs.ansible.com/ansible-lint/usage/usage.html#command-line-options
 
