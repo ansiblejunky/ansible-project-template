@@ -1,0 +1,15 @@
+---
+# Ansible Roles specific to application `appname`. This helps
+# breakup and organize roles specific to an application,
+# team, etc. It allows you to run `ansible-galaxy` on
+# just a subset of roles instead of the full `requirements.yml`
+# which will grow over time. Install only these roles by first
+# navigating to the `roles` folder and then running:
+# `ansible-galaxy install --force -r appname.yml`
+
+# TIP: Use the `scm` key for repos that do not exist in ansible-galaxy.com!
+
+- name: role1
+  src: https://github.com/ansiblejunky/ansible-examples-repos-role1.git
+  version: origin/master
+  scm: git

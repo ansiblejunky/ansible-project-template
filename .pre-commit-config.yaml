@@ -2,26 +2,19 @@
 
 repos:
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v4.1.0a0
+    rev: v4.1.0
     hooks:
       - id: ansible-lint
         name: ansible-lint
         files: \.(yaml|yml)$
-        args: [-c .ansible-lint]
+        entry: ansible-lint
+        language: python
         verbose: true
 
   - repo: https://github.com/adrienverge/yamllint.git
     rev: v1.15.0
     hooks:
       - id: yamllint
-        verbose: true
-
-  - repo: https://github.com/willthames/ansible-review
-    rev: v0.13.9
-    hooks:
-      - id: ansible-review
-        name: ansible-review
-        args: [-r ansible_lint/rules/]
         verbose: true
 
   - repo: https://github.com/pre-commit/pre-commit-hooks

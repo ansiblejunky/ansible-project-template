@@ -1,5 +1,5 @@
 ---
-# Install example role from GitHub
-- name: role1
-  src: https://github.com/ansiblejunky/ansible-examples-repos-role1.git
-  version: origin/master
+# Install roles by navigating to your `roles` folder
+# and then running `ansible-galaxy install --force -r requirements.yml`
+
+- include: appname.yml

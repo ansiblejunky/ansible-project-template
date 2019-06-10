@@ -3,11 +3,16 @@
 # TODO: add custom ansible-lint rule to require `name:` at play level
 - hosts: all
   gather_facts: true
+  vars_files:
+    - "hosts/shared_secrets.yml"
+    - "hosts/shared_vars.yml"
+    - "{{ inventory_dir }}/secrets.yml"
 
-  vars:
-    invalid-name: "test-play-level"
+  # vars:
+  #   invalid-name: "test-play-level"
   roles:
     - role1
+
   tasks:
     - debug:
         msg: Completed all tasks
