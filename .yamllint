@@ -1,0 +1,19 @@
+---
+# For more information on configuring yamllint
+# https://yamllint.readthedocs.io/en/stable/configuration.html
+# This file extends the default conf by adjusting some options.
+
+extends: default
+
+rules:
+  # 80 chars should be enough, but don't fail if a line is longer
+  line-length:
+    max: 80
+    level: warning
+  indentation:
+    spaces: consistent
+
+ignore: |
+  roles/*
+  .pre-commit-config.yaml
+  Build.yml

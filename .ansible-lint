@@ -28,7 +28,7 @@ quiet: true
 
 # custom rules directory
 rulesdir:
-  - ./ansible_lint/rules/
+  - ./.ansible_lint/
 
 # verbosity setting (currently 0 and 1 are supported; displays `examining file` messages
 verbosity: 0

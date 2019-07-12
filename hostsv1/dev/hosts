@@ -1,0 +1,29 @@
+[webservers]
+127.0.0.1
+
+[dbservers]
+127.0.0.1
+
+[appservers]
+127.0.0.1
+
+
+
+
+
+# TODO: migrate properly these settings for vagrant support in dev environment
+[defaults]
+############## ansible defaults
+timeout = 20
+fact_caching = jsonfile
+fact_caching_connection = ~/.cache/facts
+fact_caching_timout = 86400
+############## host defaults
+
+# disable SSH key host checking
+host_key_checking = False
+# ansible_ssh_user variable in inventory
+remote_user = vagrant
+# ansible_ssh_private_key_file variable in inventory
+private_key_file = ~/.vagrant.d/insecure_private_key
+remote_port = 2222

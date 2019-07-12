@@ -3,10 +3,11 @@
 # TODO: add custom ansible-lint rule to require `name:` at play level
 - hosts: all
   gather_facts: true
-  vars_files:
-    - "hosts/shared_secrets.yml"
-    - "hosts/shared_vars.yml"
-    - "{{ inventory_dir }}/secrets.yml"
+  # Not necessary to load vars files since we created soft links
+  # vars_files:
+  #   - "hosts/shared_secrets.yml"
+  #   - "hosts/shared_vars.yml"
+  #   - "{{ inventory_dir }}/secrets.yml"
 
   # vars:
   #   invalid-name: "test-play-level"

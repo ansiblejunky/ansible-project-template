@@ -1,0 +1,20 @@
+---
+# For more information on Kerberos Authentication
+# https://docs.ansible.com/ansible-tower/latest/html/administration/kerberos_auth.html
+# Typically the domain is always upper case in the username
+
+ansible_user: testuser@DEV.EXAMPLE.COM
+# vaulted password using `ansible-vault encrypt-string 'password'` command
+ansible_password: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          36363836643363343831613430623265353865303438366261366330636435393161643436383864
+          3534666163643834633530333662633562306539353038360a326166633766383632363165343665
+          37316237373461636339656562343062393939333161363035326337303164393364343930643831
+          3332633136663135620a666330306533393030613465633236303635303964393733383633323434
+          3339
+ansible_connection: winrm
+ansible_winrm_server_cert_validation: ignore
+ansible_winrm_transport: kerberos
+ansible_port: 5985 # HTTP (5985) or HTTPS (5986)
+ansible_winrm_operation_timeout_sec: 480
+ansible_winrm_read_timeout_sec: 600
