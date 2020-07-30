@@ -19,9 +19,10 @@
         msg: Completed all tasks
     - debug:
         msg: Test pre-commit hook
-    # - name: test
-    #   set_fact:
-    #     myvar_Name: testvalue
+    - set_fact:
+        myvar_Name: testvalue
+    #- shell: echo hello
+
     #- name: "Test dash in name"
     #  command: "echo {{ invalid-name }}"
     #  vars:

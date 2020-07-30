@@ -156,6 +156,7 @@ To address the challenge of managing multi-stage environments with Ansible, it i
 - [How to Manage Multistage Environments with Ansible](https://www.digitalocean.com/community/tutorials/how-to-manage-multistage-environments-with-ansible).
 - [Managing multiple environments with Ansible - best practices](https://rock-it.pl/managing-multiple-environments-with-ansible-best-practices/)
 - [Ansible Playbook Structure](http://www.oznetnerd.com/ansible-playbook-structure/)
+- [Ansible: Directory Layout](https://dev.to/tmidi/ansible-directory-layout-5edj)
 
 In this repository there are two examples of inventory structures. You may choose either one for your purposes. Ansible Inventories can be constructed using either `folders` or groups or both. In the first example `hostsv1` only folders and symbolic links are used along with multiple inventory files. In the second example `hostsv2` only groups are used in a single inventory file.
 
@@ -287,6 +288,11 @@ Examples of [plugins that come with Ansible](https://github.com/ansible/ansible/
 Place your custom filter plugins inside the `plugins/filter` folder.
 
 Reference the following [filter plugin examples](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/filter/core.py) from Ansible core filters.
+
+
+## References
+
+[The Inside Playbook - USING ANSIBLE AND ANSIBLE TOWER WITH SHARED ROLES](https://www.ansible.com/blog/using-ansible-and-ansible-tower-with-shared-roles)
 
 ## Issues
 

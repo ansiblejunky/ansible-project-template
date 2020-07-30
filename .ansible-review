@@ -1,0 +1,4 @@
+[rules]
+lint = /usr/local/share/ansible/lint/lint-rules/
+standards = /usr/local/share/ansible/lint
+

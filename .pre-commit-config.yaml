@@ -1,6 +1,14 @@
 ---
 
 repos:
+  - repo: https://github.com/willthames/ansible-review
+    rev: v0.14.0rc2
+    hooks:
+      - id: ansible-review
+        name: ansible-review
+        entry: ansible-review -c .ansible-review 
+        verbose: true
+        
   - repo: https://github.com/ansible/ansible-lint.git
     rev: v4.1.0
     hooks:

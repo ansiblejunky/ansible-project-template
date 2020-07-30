@@ -20,6 +20,9 @@
 # More information found here:
 # https://docs.ansible.com/ansible-lint/usage/usage.html#examples
 
+exclude_paths:
+  - ./README.md
+
 # parseable output in the format of pep8
 parseable: true
 
@@ -27,8 +30,8 @@ parseable: true
 quiet: true
 
 # custom rules directory
-rulesdir:
-  - ./.ansible_lint/
+#rulesdir:
+#  - ./.ansible_lint/
 
 # verbosity setting (currently 0 and 1 are supported; displays `examining file` messages
 verbosity: 0
