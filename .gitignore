@@ -1,4 +1,12 @@
 *.retry
-roles/galaxy/*
+
+# whitelist requirements.yml and any included yml files
+!*.roles/*.yml
+# blacklist everything else
+roles/*
+
+# python compiled files
 *.pyc
 
+# pyenv configuration
+.python-version

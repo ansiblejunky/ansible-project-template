@@ -1,0 +1,8 @@
+[dev]
+dev1.example.com
+
+[test]
+test1.example.com
+
+[prod]
+prod1.example.com

@@ -1,4 +1,11 @@
-# Ansible Playbook Repository
+# Ansible Project Template
+
+This repository is part of a set of repos that cover the Ansible Repository Design.
+- [ansible-examples-repos-project](https://github.com/ansiblejunky/ansible-examples-repos-project)
+- [ansible-examples-repos-inventory](https://github.com/ansiblejunky/ansible-examples-repos-inventory)
+- [ansible-examples-repos-skeleton-role](https://github.com/ansiblejunky/ansible-examples-repos-playbooks)
+- [ansible-examples-repos-role1](https://github.com/ansiblejunky/ansible-examples-repos-role-myrole)
+- [ansible-examples-repos-lint](https://github.com/ansiblejunky/ansible-examples-repos-lint)
 
 Example Ansible Playbook repository containing an initial structure that is a great starting point for anyone wanting to kickstart with Ansible.  Best practice states you should manage one repository for your Ansible Playbooks and separate repositories for each of your Ansible Roles.
 
@@ -13,6 +20,138 @@ The purpose of having an Ansible Playbook repo is to maintain a single source of
 
 Ansible Playbooks should be very short and simple - they define **where** and **what**. Ansible Roles should be environment-agnostic and answer **how**. Therefore they should be built independently from the Ansible Playbook repository. This allows **any** Ansible Playbook to use the Ansible Role and run the tasks against **any** environment. The overall goal for Ansible Roles is to be a reusable and encapsulated object.
 
+## Notes
+
+TODO: UPDATE THIS TEXT
+
+- Install Ansible extension
+  - [VSCode Ansible extension](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
+- Configure Ansible extension
+  - Configure the settings for the extension to use your custom execution environment image you built using `ansible-builder`
+  - Adjust the lint rules by creating `.ansible-lint` configuration file in your repository
+  - It requires using `skip_list` otherwise you'll still see red-marked issues in your editor window
+  - `ansible-lint` will leverage the `.yamllint.yml` configuration file to additionally check the yaml rules
+- Debug Ansible extension
+  - When issues arrise or odd behavior from the Ansible extension, show the `Output` window (View -> Output menu item) and select `Ansible Server` in the drop down on the right side to see what is happening inside the extension
+  - To log issues with the extension use [vscode-ansible](https://github.com/ansible/vscode-ansible) GitHub repository
+- Generate latest `ansible.cfg` using the [ansible-config](https://docs.ansible.com/ansible/latest/cli/ansible-config.html) tool
+
+- TODO: how to use makefile or someething to run ansible-navigator commands to run a playbook in VSCode
+- TODO: Add python lint config file in this repo too, since ansible has python modules, etc; consider [flake8](https://flake8.pycqa.org/en/latest/user/configuration.html) or [pylint](https://www.codeac.io/documentation/pylint-configuration.html) and using VSCode python linting methods [here](https://code.visualstudio.com/docs/python/linting)
+
+NOTE: Look also at image `https://quay.io/repository/ansible/creator-ee:latest`, which is what the VSCode `Ansible` extension uses by default to run ansible-lint. Example using `creator-ee` image:
+```
+docker run --rm --workdir /Users/jwadleig/Projects/ansible-examples -v /Users/jwadleig/Projects/ansible-examples:/Users/jwadleig/Projects/ansible-examples -e ANSIBLE_FORCE_COLOR=0 --user=501 --name ansible_language_server_2f79465e-219b-4acd-ba31-67c15e08deb0 quay.io/ansible/creator-ee:latest ansible-lint  --offline --nocolor -f codeclimate "/Users/jwadleig/Projects/ansible-examples/azure_windows_build.yml"
+```
+
+NOTE: Consider using github template repository format to create (instead of using ansible-galaxy init command!):
+- Ansible Role template
+- Ansible Collection template
+- Ansible Project template
+https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository
+[Collection Template](https://github.com/ansible-collections/collection_template)
+
+
+## Skeleton - edit this text
+
+# Ansible Galaxy - Role Skeleton
+
+This repo is used to quickly create new Ansible Roles.
+
+## Requirements
+
+- **ansible-galaxy** command
+- Python
+
+## Usage
+
+#### Role Names
+
+##### Roles long name
+
+Used as the roles repository name in cases where you have a single role per repository.
+
+```shell
+ansible-role-myrole
+```
+
+##### Roles short name
+
+Used when creating a new role using this project.:
+
+```shell
+myrole
+```
+
+### Setup
+
+#### Clone project fork
+
+Clone your customised personal or business fork to your Ansible projects directory
+
+```shell
+mkdir ~/projects
+cd ~/projects
+git clone git@github.com:cjsteel/galaxy-role-skeleton.git
+```
+
+#### Create your role
+
+##### Syntax example
+
+```shell
+ansible-galaxy init --role-skeleton=ALTERNATIVE_ROLE_SKELETON_PATH role-short-name
+```
+
+#### Real world usage examples:
+
+##### To create a new role
+
+```shell
+mkdir -p ~/projects/your-ansible-project/roles
+cd ~/projects/your-ansible-project/roles
+ansible-galaxy init --role-skeleton=~/projects/galaxy-role-skeleton/skeleton role-short-name -vvv
+```
+
+##### To overwrite an existing role
+
+```shell
+cd ~/projects/your-ansible-project/roles
+ansible-galaxy init --role-skeleton=~/projects/galaxy-role-skeleton/skeleton -f existing-role-short-name -vvv
+```
+
+##### Set up your default Molecule scenario
+
+```shell
+molecule init scenario -s default -d lxd -r role-short-name
+```
+
+## Troubleshooting
+
+### Molecule
+
+#### pytest bug: Fix for error"AttributeError: 'Config' object has no attribute 'cache'
+
+* [Possible bug with the 3.10.0 release #4304](https://github.com/pytest-dev/pytest/issues/4304)
+
+```shell
+touch molecule/default/pytest.ini" like this one.
+```
+
+```ini
+[pytest]
+addopts = -p no:cacheprovider -p no:stepwise
+```
+
+## Author(s) and license
+
+- [Christopher Steel](http://mcin-cnim.ca/) | [e-mail](mailto:christopher.steel@mcgill.ca)
+
+License: [MIT](https://tldrlegal.com/license/mit-license)
+
+
+
+
 ## Ansible Roles
 
 Ansible Roles should be built and managed within their own separate repositories. An example Ansible Role repo can be found [here](https://github.com/ansiblejunky/ansible-examples-repos-role-myrole). They should **not** be built inside this repo!
@@ -23,7 +162,7 @@ In this repo the `roles/requirements.yml` file will be used to define our Ansibl
 
 ## Ansible Galaxy
 
-When testing playbooks locally, you must manually perform the `ansible-galaxy` command to install the dependent Ansible Roles into the `roles` folder. This can be achieved using the following command:
+When testing playbooks on a terminal, you must manually perform the `ansible-galaxy` command to install the dependent Ansible Roles into the `roles` folder. This can be achieved using the following command:
 
 ```bash
 # navigate to the playbook directory and roles folder
@@ -52,7 +191,7 @@ In order to support the `roles/requirements.yml` and the fact that roles will be
 roles/*
 ```
 
-It is important to note that since we have Ansible Playbooks and Ansible Roles in separate repositories, a Project pointing to the Ansible Playbook repo in Ansible Tower will still only check against the revision number of the Ansible Playbook repo to determine if a sync is necessary. This means if your Ansible Role repo has changed, but the Ansible Playbook repo has not, then Ansible Tower will not download the latest code from your Ansible Role repo to be used by your playbook. The solution is simple. Make sure you use tags on your revisions in your Ansible Role repos. Then you can simply update the `roles/requirements.yml` file in the Ansible Playbook repo according to the revision/tag you want to use.  That change will then trigger Ansible Tower to pull the newest Ansible Role code. This model produces a stable and controlled testing environment and is considered best practice.
+It is important to note that since we have Ansible Playbooks and Ansible Roles in separate repositories, an Ansible Tower Project pointing to the Ansible Playbook repo in Ansible Tower will still only check against the revision number of the Ansible Playbook repo to determine if a sync is necessary. This means if your Ansible Role repo has changed, but the Ansible Playbook repo has not, then Ansible Tower will not download the latest code from your Ansible Role repo to be used by your playbook. The solution is simple. Make sure you use tags on your revisions in your Ansible Role repos. Then you can simply update the `roles/requirements.yml` file in the Ansible Playbook repo according to the revision/tag you want to use.  That change will then trigger Ansible Tower to pull the newest Ansible Role code. This model produces a stable and controlled testing environment and is considered best practice.
 
 ## Gathering Facts
 
@@ -146,6 +285,27 @@ pre-commit install
 ```
 
 pre-commit will now run on every commit. Every time you clone a project using pre-commit running `pre-commit install` should always be the first thing you do.
+
+NOTE: If at any time you hit some strange issues with pre-commit or its hooks, you can decide to skip the hooks by using `git commit --no-verify` when committing the code locally.
+
+### Testing
+
+```
+# Install specific Python version
+pyenv install --skip-existing 3.8.2
+
+# Prepare python virtual environment for ansible-review
+pyenv virtualenv 3.8.2 ansible-review
+pyenv local ansible-review
+pip install ansible
+pip install git+https://github.com/willthames/ansible-review.git@v0.14.0rc2
+
+# Prepare python virtual environment for ansible-lint
+pyenv virtualenv 3.8.2 ansible-lint
+pyenv local ansible-lint
+pip install ansible
+pip install git+https://github.com/ansible/ansible-lint.git
+```
 
 ## Inventory
 
