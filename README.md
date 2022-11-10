@@ -2,9 +2,9 @@
 
 This repository is part of a set of template repositories.
 
-- [ansible-examples-repos-project](https://github.com/ansiblejunky/ansible-project-template)
-- [ansible-examples-repos-inventory](https://github.com/ansiblejunky/ansible-inventory-template)
-- [ansible-examples-repos-role1](https://github.com/ansiblejunky/ansible-role-template)
+- [ansible-project-template](https://github.com/ansiblejunky/ansible-project-template)
+- [ansible-inventory-template](https://github.com/ansiblejunky/ansible-inventory-template)
+- [ansible-role-template](https://github.com/ansiblejunky/ansible-role-template)
 
 Example Ansible Playbook repository containing an initial structure that is a great starting point for anyone wanting to kickstart with Ansible.  Best practice states you should manage one repository for your Ansible Playbooks and separate repositories for each of your Ansible Roles.
 
