@@ -1,11 +1,10 @@
 # Ansible Project Template
 
-This repository is part of a set of repos that cover the Ansible Repository Design.
-- [ansible-examples-repos-project](https://github.com/ansiblejunky/ansible-examples-repos-project)
-- [ansible-examples-repos-inventory](https://github.com/ansiblejunky/ansible-examples-repos-inventory)
-- [ansible-examples-repos-skeleton-role](https://github.com/ansiblejunky/ansible-examples-repos-playbooks)
-- [ansible-examples-repos-role1](https://github.com/ansiblejunky/ansible-examples-repos-role-myrole)
-- [ansible-examples-repos-lint](https://github.com/ansiblejunky/ansible-examples-repos-lint)
+This repository is part of a set of template repositories.
+
+- [ansible-examples-repos-project](https://github.com/ansiblejunky/ansible-project-template)
+- [ansible-examples-repos-inventory](https://github.com/ansiblejunky/ansible-inventory-template)
+- [ansible-examples-repos-role1](https://github.com/ansiblejunky/ansible-role-template)
 
 Example Ansible Playbook repository containing an initial structure that is a great starting point for anyone wanting to kickstart with Ansible.  Best practice states you should manage one repository for your Ansible Playbooks and separate repositories for each of your Ansible Roles.
 
@@ -18,9 +17,9 @@ The purpose of having an Ansible Playbook repo is to maintain a single source of
 - Playbooks
 - etc.
 
-Ansible Playbooks should be very short and simple - they define **where** and **what**. Ansible Roles should be environment-agnostic and answer **how**. Therefore they should be built independently from the Ansible Playbook repository. This allows **any** Ansible Playbook to use the Ansible Role and run the tasks against **any** environment. The overall goal for Ansible Roles is to be a reusable and encapsulated object.
+Ansible Playbooks should be very short and simple - they define **WHERE** and **WHAT**. Ansible Roles should be environment-agnostic and answer **how**. Therefore they should be built independently from the Ansible Playbook repository. This allows **any** Ansible Playbook to use the Ansible Role and run the tasks against **any** environment. The overall goal for Ansible Roles is to be a reusable and encapsulated object.
 
-## Notes
+## Visual Studio Code
 
 TODO: UPDATE THIS TEXT
 
@@ -31,125 +30,24 @@ TODO: UPDATE THIS TEXT
   - Adjust the lint rules by creating `.ansible-lint` configuration file in your repository
   - It requires using `skip_list` otherwise you'll still see red-marked issues in your editor window
   - `ansible-lint` will leverage the `.yamllint.yml` configuration file to additionally check the yaml rules
-- Debug Ansible extension
-  - When issues arrise or odd behavior from the Ansible extension, show the `Output` window (View -> Output menu item) and select `Ansible Server` in the drop down on the right side to see what is happening inside the extension
+  - If you set `vault_password_file` inside your `ansible.cfg` then you might need to mount your vault password file inside the Execution Environment by setting the `volumeMounts`, for example:
+```
+      "ansible.executionEnvironment.volumeMounts": [
+            { 
+            "src": "/Users/jwadleig/.ansible_vault_password",
+            "dest": "/home/runner/.ansible_vault_password"}
+      ],
+```
+- Using Ansible extension
+  - You can show module options as you edit your playbook by enabling [VSCode IntelliSense](https://code.visualstudio.com/docs/editor/intellisense#_intellisense-features): Ctrl+Space
+  - When issues arrise or odd behavior from the Ansible extension, show the VSCode `Output` window (View -> Output menu item) and select `Ansible Server` in the drop down on the right side to see what is happening inside the extension
   - To log issues with the extension use [vscode-ansible](https://github.com/ansible/vscode-ansible) GitHub repository
 - Generate latest `ansible.cfg` using the [ansible-config](https://docs.ansible.com/ansible/latest/cli/ansible-config.html) tool
 
-- TODO: how to use makefile or someething to run ansible-navigator commands to run a playbook in VSCode
+- TODO: how to use makefile or something to run ansible-navigator commands to run a playbook in VSCode
 - TODO: Add python lint config file in this repo too, since ansible has python modules, etc; consider [flake8](https://flake8.pycqa.org/en/latest/user/configuration.html) or [pylint](https://www.codeac.io/documentation/pylint-configuration.html) and using VSCode python linting methods [here](https://code.visualstudio.com/docs/python/linting)
 
-NOTE: Look also at image `https://quay.io/repository/ansible/creator-ee:latest`, which is what the VSCode `Ansible` extension uses by default to run ansible-lint. Example using `creator-ee` image:
-```
-docker run --rm --workdir /Users/jwadleig/Projects/ansible-examples -v /Users/jwadleig/Projects/ansible-examples:/Users/jwadleig/Projects/ansible-examples -e ANSIBLE_FORCE_COLOR=0 --user=501 --name ansible_language_server_2f79465e-219b-4acd-ba31-67c15e08deb0 quay.io/ansible/creator-ee:latest ansible-lint  --offline --nocolor -f codeclimate "/Users/jwadleig/Projects/ansible-examples/azure_windows_build.yml"
-```
-
-NOTE: Consider using github template repository format to create (instead of using ansible-galaxy init command!):
-- Ansible Role template
-- Ansible Collection template
-- Ansible Project template
-https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository
 [Collection Template](https://github.com/ansible-collections/collection_template)
-
-
-## Skeleton - edit this text
-
-# Ansible Galaxy - Role Skeleton
-
-This repo is used to quickly create new Ansible Roles.
-
-## Requirements
-
-- **ansible-galaxy** command
-- Python
-
-## Usage
-
-#### Role Names
-
-##### Roles long name
-
-Used as the roles repository name in cases where you have a single role per repository.
-
-```shell
-ansible-role-myrole
-```
-
-##### Roles short name
-
-Used when creating a new role using this project.:
-
-```shell
-myrole
-```
-
-### Setup
-
-#### Clone project fork
-
-Clone your customised personal or business fork to your Ansible projects directory
-
-```shell
-mkdir ~/projects
-cd ~/projects
-git clone git@github.com:cjsteel/galaxy-role-skeleton.git
-```
-
-#### Create your role
-
-##### Syntax example
-
-```shell
-ansible-galaxy init --role-skeleton=ALTERNATIVE_ROLE_SKELETON_PATH role-short-name
-```
-
-#### Real world usage examples:
-
-##### To create a new role
-
-```shell
-mkdir -p ~/projects/your-ansible-project/roles
-cd ~/projects/your-ansible-project/roles
-ansible-galaxy init --role-skeleton=~/projects/galaxy-role-skeleton/skeleton role-short-name -vvv
-```
-
-##### To overwrite an existing role
-
-```shell
-cd ~/projects/your-ansible-project/roles
-ansible-galaxy init --role-skeleton=~/projects/galaxy-role-skeleton/skeleton -f existing-role-short-name -vvv
-```
-
-##### Set up your default Molecule scenario
-
-```shell
-molecule init scenario -s default -d lxd -r role-short-name
-```
-
-## Troubleshooting
-
-### Molecule
-
-#### pytest bug: Fix for error"AttributeError: 'Config' object has no attribute 'cache'
-
-* [Possible bug with the 3.10.0 release #4304](https://github.com/pytest-dev/pytest/issues/4304)
-
-```shell
-touch molecule/default/pytest.ini" like this one.
-```
-
-```ini
-[pytest]
-addopts = -p no:cacheprovider -p no:stepwise
-```
-
-## Author(s) and license
-
-- [Christopher Steel](http://mcin-cnim.ca/) | [e-mail](mailto:christopher.steel@mcgill.ca)
-
-License: [MIT](https://tldrlegal.com/license/mit-license)
-
-
 
 
 ## Ansible Roles
