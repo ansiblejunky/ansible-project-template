@@ -31,7 +31,7 @@ TODO: UPDATE THIS TEXT
   - It requires using `skip_list` otherwise you'll still see red-marked issues in your editor window
   - `ansible-lint` will leverage the `.yamllint.yml` configuration file to additionally check the yaml rules
   - If you set `vault_password_file` inside your `ansible.cfg` then you might need to mount your vault password file inside the Execution Environment by setting the `volumeMounts`, for example:
-```
+```json
       "ansible.executionEnvironment.volumeMounts": [
             { 
             "src": "/Users/jwadleig/.ansible_vault_password",
