@@ -35,7 +35,8 @@ TODO: UPDATE THIS TEXT
       "ansible.executionEnvironment.volumeMounts": [
             { 
             "src": "/Users/jwadleig/.ansible_vault_password",
-            "dest": "/home/runner/.ansible_vault_password"}
+            "dest": "/home/runner/.ansible_vault_password"
+            }
       ],
 ```
 - Using Ansible extension
