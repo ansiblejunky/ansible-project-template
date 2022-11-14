@@ -51,107 +51,6 @@ NOTE: Consider using github template repository format to create (instead of usi
 https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository
 [Collection Template](https://github.com/ansible-collections/collection_template)
 
-
-## Skeleton - edit this text
-
-# Ansible Galaxy - Role Skeleton
-
-This repo is used to quickly create new Ansible Roles.
-
-## Requirements
-
-- **ansible-galaxy** command
-- Python
-
-## Usage
-
-#### Role Names
-
-##### Roles long name
-
-Used as the roles repository name in cases where you have a single role per repository.
-
-```shell
-ansible-role-myrole
-```
-
-##### Roles short name
-
-Used when creating a new role using this project.:
-
-```shell
-myrole
-```
-
-### Setup
-
-#### Clone project fork
-
-Clone your customised personal or business fork to your Ansible projects directory
-
-```shell
-mkdir ~/projects
-cd ~/projects
-git clone git@github.com:cjsteel/galaxy-role-skeleton.git
-```
-
-#### Create your role
-
-##### Syntax example
-
-```shell
-ansible-galaxy init --role-skeleton=ALTERNATIVE_ROLE_SKELETON_PATH role-short-name
-```
-
-#### Real world usage examples:
-
-##### To create a new role
-
-```shell
-mkdir -p ~/projects/your-ansible-project/roles
-cd ~/projects/your-ansible-project/roles
-ansible-galaxy init --role-skeleton=~/projects/galaxy-role-skeleton/skeleton role-short-name -vvv
-```
-
-##### To overwrite an existing role
-
-```shell
-cd ~/projects/your-ansible-project/roles
-ansible-galaxy init --role-skeleton=~/projects/galaxy-role-skeleton/skeleton -f existing-role-short-name -vvv
-```
-
-##### Set up your default Molecule scenario
-
-```shell
-molecule init scenario -s default -d lxd -r role-short-name
-```
-
-## Troubleshooting
-
-### Molecule
-
-#### pytest bug: Fix for error"AttributeError: 'Config' object has no attribute 'cache'
-
-* [Possible bug with the 3.10.0 release #4304](https://github.com/pytest-dev/pytest/issues/4304)
-
-```shell
-touch molecule/default/pytest.ini" like this one.
-```
-
-```ini
-[pytest]
-addopts = -p no:cacheprovider -p no:stepwise
-```
-
-## Author(s) and license
-
-- [Christopher Steel](http://mcin-cnim.ca/) | [e-mail](mailto:christopher.steel@mcgill.ca)
-
-License: [MIT](https://tldrlegal.com/license/mit-license)
-
-
-
-
 ## Ansible Roles
 
 Ansible Roles should be built and managed within their own separate repositories. An example Ansible Role repo can be found [here](https://github.com/ansiblejunky/ansible-examples-repos-role-myrole). They should **not** be built inside this repo!
@@ -195,7 +94,7 @@ It is important to note that since we have Ansible Playbooks and Ansible Roles i
 
 ## Gathering Facts
 
-It is considered best practice to change the default setting in `ansible.cfg` from using `implicit` gathering to `explicit`. The reason is you want developers to explicitly state that facts need to be gathered for particular hosts, otherwise it can result in unwanted fact gathering tasks that consume time.
+It is best practice to change the default setting in `ansible.cfg` from using `implicit` gathering to `explicit`. This forces developers to explicitly state that facts need to be gathered for particular hosts, otherwise it can result in unwanted fact gathering tasks that consume time.
 
 This is set in the `ansible.cfg` file:
 
@@ -205,11 +104,10 @@ gathering = explicit
 
 ## Variables
 
-Variables can be defined in many different places in this repo. When defining variables, first get familiar with the common filter functions such as `default`, `mandatory`, etc. Filter functions stem from Jinja and help transform data/variables. With Ansible you can use both core Jinja and core Ansible filter functions however you wish.
+Variables can be defined in many different places in this repo. It is recommended to get familiar with the common filter functions such as `default`, `mandatory`, etc. Filter functions stem from Jinja and help transform data.
 
-For Jinja core filter functions see the [list of builtin filters](http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters).
-
-For Ansible core filter functions see [this page](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html).
+- For Jinja core filter functions see the [list of builtin filters](http://jinja.pocoo.org/docs/2.10/templates/#builtin-filters).
+- For Ansible core filter functions see [this page](https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters.html).
 
 Some common filter functions:
 
@@ -223,7 +121,7 @@ Some common filter functions:
 
 ### Group Variables
 
-This repo contains a `group_vars` folder that includes standard connectivity variables defined for each Operating System Family. The Ansible `setup` module gathers facts about a target server and produces the `ansible_os_family` fact that describes the OS family. Therefore the filenames are named after the OS family since this is also the inventory group that our servers will be using.
+This repo contains a `group_vars` folder for each `environments` folder. that includes standard connectivity variables defined for each Operating System Family. The Ansible `setup` module gathers facts about a target server and produces the `ansible_os_family` fact that describes the OS family. Therefore the filenames are named after the OS family since this is also the inventory group that our servers will be using.
 
 For example, a Windows server will be assigned to the `windows` inventory group. As a result, Ansible will automatically load the `group_vars/windows.yml` file. For Windows servers, the recommended authentication method uses `winrm` transport and `kerberos` authentication.
 
