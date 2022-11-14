@@ -1,5 +1,7 @@
 ---
-
+# Configuration for yamllint (leveraged by ansible-lint tool)
+# Source of truth on this configuration is located here:
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.yamllint.yml
 extends: default
 
 ignore: |

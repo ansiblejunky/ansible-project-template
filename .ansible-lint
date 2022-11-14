@@ -1,6 +1,8 @@
-# Ansible Lint Settings
-# https://ansible-lint.readthedocs.io/configuring/#configuration-file
 ---
+# Configuration for [ansible-lint](https://ansible-lint.readthedocs.io/configuring/#configuration-file)
+# Source of truth on this configuration is located here:
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.ansible-lint
+
 use_default_rules: true
 skip_list:
 - name[missing]

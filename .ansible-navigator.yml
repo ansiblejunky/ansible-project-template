@@ -1,7 +1,8 @@
-# Ansible Navigator Settings
-# https://ansible-navigator.readthedocs.io/en/latest/settings/
-
 ---
+# Ansible Navigator Settings https://ansible-navigator.readthedocs.io/en/latest/settings/
+# Source of truth on this configuration is located here:
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.ansible-navigator.yml
+
 ansible-navigator:
 #
 #   ansible:
