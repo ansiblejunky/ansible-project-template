@@ -1,0 +1,40 @@
+2022-11-18 19:31:32,839 p=30 u=501 n=ansible | ERROR! the role 'role1' was not found in /Users/jwadleig/Projects/ansible-project-template/roles:/home/runner/.cache/ansible-compat/535cf2/roles:/Users/jwadleig/Projects/ansible-project-template/galaxy:/Users/jwadleig/Projects/ansible-project-template
+
+The error appears to be in '/Users/jwadleig/Projects/ansible-project-template/site.yml': line 15, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role1
+      ^ here
+
+2022-11-18 19:31:58,257 p=30 u=501 n=ansible | ERROR! the role 'role1' was not found in /Users/jwadleig/Projects/ansible-project-template/roles:/home/runner/.cache/ansible-compat/535cf2/roles:/Users/jwadleig/Projects/ansible-project-template/galaxy:/Users/jwadleig/Projects/ansible-project-template
+
+The error appears to be in '/Users/jwadleig/Projects/ansible-project-template/site.yml': line 14, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role1
+      ^ here
+
+2022-11-18 19:33:10,598 p=31 u=501 n=ansible | ERROR! the role 'role1' was not found in /Users/jwadleig/Projects/ansible-project-template/roles:/home/runner/.cache/ansible-compat/535cf2/roles:/Users/jwadleig/Projects/ansible-project-template/galaxy:/Users/jwadleig/Projects/ansible-project-template
+
+The error appears to be in '/Users/jwadleig/Projects/ansible-project-template/site.yml': line 25, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+    - role1
+      ^ here
+
+2022-11-18 19:33:35,786 p=30 u=501 n=ansible | playbook: site.yml
+2022-11-18 19:33:50,050 p=30 u=501 n=ansible | playbook: playbooks/site.yml
+2022-11-18 19:34:59,241 p=30 u=501 n=ansible | playbook: playbooks/site.yml
+2022-11-18 19:35:22,679 p=30 u=501 n=ansible | ERROR! Empty playbook, nothing to do: /Users/jwadleig/Projects/ansible-project-template/playbooks/web.yml
+2022-11-18 19:35:29,348 p=30 u=501 n=ansible | ERROR! Empty playbook, nothing to do: /Users/jwadleig/Projects/ansible-project-template/playbooks/app.yml
+2022-11-18 19:35:34,542 p=30 u=501 n=ansible | ERROR! Empty playbook, nothing to do: /Users/jwadleig/Projects/ansible-project-template/playbooks/database.yml
+2022-11-18 19:35:50,412 p=30 u=501 n=ansible | ERROR! Empty playbook, nothing to do: /Users/jwadleig/Projects/ansible-project-template/playbooks/application.yml

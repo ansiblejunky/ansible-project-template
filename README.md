@@ -1,27 +1,30 @@
 # Ansible Project Template
 
-This repository is part of a set of template repositories.
+This repository belongs in a family of repository templates:
 
 - [ansible-project-template](https://github.com/ansiblejunky/ansible-project-template)
 - [ansible-inventory-template](https://github.com/ansiblejunky/ansible-inventory-template)
 - [ansible-role-template](https://github.com/ansiblejunky/ansible-role-template)
 
-Example Ansible Playbook repository containing an initial structure that is a great starting point for anyone wanting to kickstart with Ansible.  Best practice states you should manage one repository for your Ansible Playbooks and separate repositories for each of your Ansible Roles.
+## Introduction
 
-The purpose of having an Ansible Playbook repo is to maintain a single source of truth with regards to the following elements:
+This repository is part of a set of template repositories. Ansible best practice suggests an Ansible Project repository and separate repositories for your Ansible Roles. The purpose of having an Ansible Project repo is to maintain a single source of truth with regards to the following elements:
 
-- Inventory (hosts, groups, environments, platforms)
+- Inventory (environments, hosts, groups, platforms)
 - Configuration Management (variables)
-- Plugins
-- Linting rules
-- Playbooks
+- Plugins for custom behevior
+- Linting rules for Continuous Integration tests
+- Playbooks to run each use case
+- Vagrantfile definitions for testing
 - etc.
 
-Ansible Playbooks should be very short and simple - they define **WHERE** and **WHAT**. Ansible Roles should be environment-agnostic and answer **how**. Therefore they should be built independently from the Ansible Playbook repository. This allows **any** Ansible Playbook to use the Ansible Role and run the tasks against **any** environment. The overall goal for Ansible Roles is to be a reusable and encapsulated object.
+`Ansible Playbooks` should be very short and simple - they define **WHERE** and **WHAT**. `Ansible Roles` should be environment-agnostic and answer **HOW**. Therefore they should be built independently from the Ansible Project repository. This allows **any** Ansible Playbook to use the Ansible Role and run the tasks against **any** environment. The overall goal for Ansible Roles should be a reusable, encapsulated, and environment-agnostic object.
 
-## Visual Studio Code
+## Development Environment
 
-TODO: UPDATE THIS TEXT
+### Visual Studio Code
+
+TODO: UPDATE THIS TEXT; move section and files to "development environment" instead of ansible-project-template?
 
 - Install Ansible extension
   - [VSCode Ansible extension](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
@@ -45,28 +48,33 @@ TODO: UPDATE THIS TEXT
   - To log issues with the extension use [vscode-ansible](https://github.com/ansible/vscode-ansible) GitHub repository
 - Generate latest `ansible.cfg` using the [ansible-config](https://docs.ansible.com/ansible/latest/cli/ansible-config.html) tool
 
+- Extensions
+  - [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+  - [Python auto formatters](https://www.kevinpeters.net/auto-formatters-for-python)
+  - [Docker]
+  - [Dev Containers]
+  - [Jinja]
+  - [Remove Development]
+  - [Vagrant]
+  - [CloudFormation Linter]
+  - [AsciiDoc]
+
 - TODO: how to use makefile or something to run ansible-navigator commands to run a playbook in VSCode
 - TODO: Add python lint config file in this repo too, since ansible has python modules, etc; consider [flake8](https://flake8.pycqa.org/en/latest/user/configuration.html) or [pylint](https://www.codeac.io/documentation/pylint-configuration.html) and using VSCode python linting methods [here](https://code.visualstudio.com/docs/python/linting)
 
 [Collection Template](https://github.com/ansible-collections/collection_template)
 
-## Ansible Roles
+## Ansible Roles and Collections
 
-Ansible Roles should be built and managed within their own separate repositories. An example Ansible Role repo can be found [here](https://github.com/ansiblejunky/ansible-examples-repos-role-myrole). They should **not** be built inside this repo!
-
-We have defined our default Ansible Roles folder using the `ansible.cfg` file by setting `roles_path: roles`.
+We have defined our default Ansible Roles folder using the `ansible.cfg` file by setting `roles_path: galaxy`.
 
 In this repo the `roles/requirements.yml` file will be used to define our Ansible Role **dependencies** that are used by our Ansible Playbooks. Additionally, you can use `include:` statements inside your requirements file to break apart the dependencies by whatever means you wish. For example, each file can represent a specific application or business vertical.
-
-## Ansible Galaxy
 
 When testing playbooks on a terminal, you must manually perform the `ansible-galaxy` command to install the dependent Ansible Roles into the `roles` folder. This can be achieved using the following command:
 
 ```bash
-# navigate to the playbook directory and roles folder
-cd playbook_dir/roles
-# download ansible roles (-f = force overwrite, -p = roles path)
-ansible-galaxy install -f -r requirements.yml -p .
+# download ansible roles
+ansible-galaxy role install -r galaxy/requirements.yml
 ```
 
 When testing in Ansible Tower, the dependent Ansible Roles are downloaded automatically. Ansible Tower automatically detects the `roles/requirements.yml` file and performs the `ansible-galaxy` command to download the roles.

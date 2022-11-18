@@ -6,9 +6,7 @@ extends: default
 
 ignore: |
   context
-  roles/*
-  collections/*
-  .pre-commit-config.yaml
+  galaxy/*
 
 rules:
   braces:
@@ -35,4 +33,3 @@ rules:
     level: warning
     allow-non-breakable-inline-mappings: true
   truthy: disable
-  

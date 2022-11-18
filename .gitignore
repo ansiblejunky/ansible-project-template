@@ -1,9 +1,13 @@
+# gitignore settings
+# Source of truth on this configuration is located here:
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.gitignore
+
 *.retry
 
 # whitelist requirements.yml and any included yml files
-!*.roles/*.yml
+!*.galaxy/*.yml
 # blacklist everything else
-roles/*
+galaxy/*
 
 # python compiled files
 *.pyc
