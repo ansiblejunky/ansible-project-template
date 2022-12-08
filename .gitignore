@@ -3,6 +3,7 @@
 # https://github.com/ansiblejunky/ansible-project-template/blob/master/.gitignore
 
 *.retry
+ansible.log
 
 # whitelist requirements.yml and any included yml files
 !*.galaxy/*.yml
