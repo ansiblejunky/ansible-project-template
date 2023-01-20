@@ -1,0 +1,20 @@
+---
+# Requirements for Ansible Roles
+# 
+# Install/upgrade roles:
+#   ansible-galaxy role install --upgrade -r roles/requirements.yml
+# List installed roles:
+#   ansible-galaxy role list
+# More info: 
+#   Using Roles - https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html
+#   Galaxy User Guide - https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
+#   Use the `scm` key for repos that do not exist in ansible-galaxy.com!
+#   Use the `include` directive to split a large file into multiple smaller files
+#   https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-multiple-roles-from-multiple-files
+
+roles:
+
+- name: role-template
+  src: https://github.com/ansiblejunky/ansible-role-template.git
+  version: master
+  scm: git

@@ -20,6 +20,10 @@ This repository is part of a set of template repositories. Ansible best practice
 
 `Ansible Playbooks` should be very short and simple - they define **WHERE** and **WHAT**. `Ansible Roles` should be environment-agnostic and answer **HOW**. Therefore they should be built independently from the Ansible Project repository. This allows **any** Ansible Playbook to use the Ansible Role and run the tasks against **any** environment. The overall goal for Ansible Roles should be a reusable, encapsulated, and environment-agnostic object.
 
+## Real World Scenarios
+
+- [Rolling Updates, Performance, Strategies](https://docs.ansible.com/ansible/latest/user_guide/playbooks_strategies.html)
+
 ## Development Environment
 
 ### Visual Studio Code

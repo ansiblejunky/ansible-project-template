@@ -2,15 +2,22 @@
 # Source of truth on this configuration is located here:
 # https://github.com/ansiblejunky/ansible-project-template/blob/master/.gitignore
 
+# Ansible
+# facts generated locally based on ansible.cfg settings
+facts.json
+# retry files
 *.retry
+# logs
+ansible.log
 
+# Ansible Collections and Roles
 # whitelist requirements.yml and any included yml files
 !*.galaxy/*.yml
 # blacklist everything else
 galaxy/*
 
-# python compiled files
+# Python
+# compiled files
 *.pyc
-
 # pyenv configuration
 .python-version
