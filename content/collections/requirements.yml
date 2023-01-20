@@ -2,7 +2,7 @@
 # Requirements for Ansible Collections
 # 
 # Install/upgrade collections:
-#   ansible-galaxy collection install --upgrade -r collections/requirements.yml
+#   ansible-galaxy collection install --upgrade -r content/collections/requirements.yml
 # List installed collections:
 #   ansible-galaxy collection list
 # More info: 
