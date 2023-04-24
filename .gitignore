@@ -9,12 +9,11 @@ facts.json
 *.retry
 # logs
 ansible.log
-
-# Ansible Collections and Roles
-# whitelist requirements.yml and any included yml files
-!*.galaxy/*.yml
-# blacklist everything else
-galaxy/*
+# add local roles but ignore everything else
+content/roles/*
+!content/roles/mylocalrole
+!content/roles/requirements.yml
+content/collections/ansible_collections
 
 # Python
 # compiled files

@@ -9,6 +9,7 @@ skip_list:
 - name[play]
 - yaml[new-line-at-end-of-file]
 - fqcn-builtins
+- yaml[colons]
 
 # parseable output in the format of pep8
 parseable: true
