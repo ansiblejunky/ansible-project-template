@@ -4,12 +4,26 @@
 # https://github.com/ansiblejunky/ansible-project-template/blob/master/.ansible-lint
 
 use_default_rules: true
+
 skip_list:
 - name[missing]
 - name[play]
 - yaml[new-line-at-end-of-file]
 - fqcn-builtins
 - yaml[colons]
+
+warn_list:
+  - yaml[document-start]
+  - yaml[brackets]
+  - yaml[braces]
+  - yaml[commas]
+  - yaml[comments]
+  - yaml[comments-indentation]
+  - yaml[empty-lines]
+  - yaml[hyphens]
+  - yaml[indentation]
+  - yaml[line-length]
+  - yaml[truthy]
 
 # parseable output in the format of pep8
 parseable: true
