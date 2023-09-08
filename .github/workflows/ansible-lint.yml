@@ -1,0 +1,15 @@
+# Ansible Lint triggered via GitHub Actions
+# https://github.com/marketplace/actions/run-ansible-lint
+# https://docs.github.com/en/actions/quickstart
+
+name: ansible-lint
+on:
+  [push, pull_request]
+
+jobs:
+  build:
+    name: Ansible Lint # Naming the build is important to use it as a status check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run ansible-lint
+        uses: ansible/ansible-lint@main # or version tag instead of 'main'
