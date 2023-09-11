@@ -1,11 +1,11 @@
 ---
 # Requirements for Ansible Collections
-# 
+#
 # Install/upgrade collections:
 #   ansible-galaxy collection install --upgrade -r content/collections/requirements.yml
 # List installed collections:
 #   ansible-galaxy collection list
-# More info: 
+# More info:
 #   Using Collections - https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
 #   Galaxy User Guide - https://docs.ansible.com/ansible/latest/galaxy/user_guide.html
 #   Use the `scm` key for repos that do not exist in ansible-galaxy.com!

@@ -11,7 +11,7 @@
       timeout: 10
     ignore_errors: true
     register: _ssh_connectivity
-    with_items: {{ input_hosts }}
+    with_items: "{{ input_hosts }}"
 
   - name: Attempt to connect via WinRM (port 5985 for HTTP, port 5986 for HTTPS)
     wait_for:
@@ -20,7 +20,7 @@
       timeout: 10
     ignore_errors: true
     register: _winrm_connectivity
-    with_items: {{ input_hosts }}
+    with_items: "{{ input_hosts }}"
 
   - name: Add hosts to linux group
     add_host:
@@ -36,8 +36,8 @@
     when: not item.failed and item.state = "started"
     with_items: "{{ winrm_connectivity.results }}"
 
-- hosts: linux
-  ......play tasks.......
+# - hosts: linux
+#   ......play tasks.......
 
-- hosts: windows
-  ......play tasks.......
+# - hosts: windows
+#   ......play tasks.......

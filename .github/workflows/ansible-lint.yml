@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@main # or version tag instead of 'main'
+        uses: ansible/ansible-lint@master # or version tag instead of 'main'

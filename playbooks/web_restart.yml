@@ -3,12 +3,12 @@
   gather_facts: true
 
   tasks:
-  - name: Perform shutdown for apache servers
-    include_role:
-      name: apache
-      tasks_from: shutdown.yml
+    - name: Perform shutdown for apache servers
+      include_role:
+        name: apache
+        tasks_from: shutdown.yml
 
-  - name: Perform startup for apache servers
-    include_role:
-      name: apache
-      tasks_from: startup.yml
+    - name: Perform startup for apache servers
+      include_role:
+        name: apache
+        tasks_from: startup.yml

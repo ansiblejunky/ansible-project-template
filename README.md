@@ -173,6 +173,11 @@ Now that you have established an inventory structure and infra-as-code, it's tim
 - Notice now that your Inventory object contains the vars and hosts and groups from the inventory structure
 - Notice it loaded the variables from within the `group_vars` folder as well!
 
+## Using Ansible Navigator
+
+TODO: Add info
+- [ansible-navigator demo](https://www.youtube.com/watch?v=J9PBKi8ydi4)
+
 ## References
 
 - [The Inside Playbook - USING ANSIBLE AND ANSIBLE TOWER WITH SHARED ROLES](https://www.ansible.com/blog/using-ansible-and-ansible-tower-with-shared-roles)
