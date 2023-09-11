@@ -21,3 +21,4 @@ content/collections/ansible_collections
 # pyenv configuration
 .python-version
 .vscode
+.DS_Store
