@@ -20,3 +20,4 @@ content/collections/ansible_collections
 *.pyc
 # pyenv configuration
 .python-version
+.vscode
