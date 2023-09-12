@@ -6,8 +6,8 @@ name: ansible-lint
 on: [push, pull_request]
 jobs:
   build:
-    name: Ansible Lint # Naming the build is important to use it as a status check
+    name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
       - name: Run ansible-lint
-        uses: ansible/ansible-lint@latest # or version tag instead of 'main'
+        uses: ansible/ansible-lint@main
