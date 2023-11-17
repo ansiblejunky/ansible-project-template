@@ -6,13 +6,13 @@
 use_default_rules: true
 
 skip_list:
-  - name[missing]
-  - name[play]
   - yaml[new-line-at-end-of-file]
-  - fqcn-builtins
   - yaml[colons]
 
 warn_list:
+  - name[missing]
+  - name[play]
+  - fqcn-builtins
   - yaml[document-start]
   - yaml[brackets]
   - yaml[braces]
