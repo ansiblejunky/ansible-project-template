@@ -8,6 +8,7 @@ use_default_rules: true
 skip_list:
   - yaml[new-line-at-end-of-file]
   - yaml[colons]
+  - name[casing]
 
 warn_list:
   - name[missing]
