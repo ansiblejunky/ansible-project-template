@@ -4,11 +4,11 @@
 
   tasks:
     - name: Perform shutdown for apache servers
-      include_role:
+      ansible.builtin.include_role:
         name: apache
         tasks_from: shutdown.yml
 
     - name: Perform startup for apache servers
-      include_role:
+      ansible.builtin.include_role:
         name: apache
         tasks_from: startup.yml

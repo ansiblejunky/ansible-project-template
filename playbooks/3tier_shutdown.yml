@@ -5,7 +5,7 @@
 
   tasks:
     - name: Perform shutdown for apache servers
-      include_role:
+      ansible.builtin.include_role:
         name: apache
         tasks_from: shutdown.yml
 
@@ -15,7 +15,7 @@
 
   tasks:
     - name: Perform shutdown for tomcat servers
-      include_role:
+      ansible.builtin.include_role:
         name: tomcat
         tasks_from: shutdown.yml
 
@@ -25,6 +25,6 @@
 
   tasks:
     - name: Perform shutdown for postgres database
-      include_role:
+      ansible.builtin.include_role:
         name: postgres
         tasks_from: shutdown.yml

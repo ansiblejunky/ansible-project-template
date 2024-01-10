@@ -14,7 +14,7 @@
 
 roles:
 
-- name: role-template
-  src: https://github.com/ansiblejunky/ansible-role-template.git
-  version: master
-  scm: git
+  - name: role-template
+    src: https://github.com/ansiblejunky/ansible-role-template.git
+    version: master
+    scm: git

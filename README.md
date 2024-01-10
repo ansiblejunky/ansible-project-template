@@ -5,6 +5,7 @@ This repository belongs in a family of repository templates:
 - [ansible-project-template](https://github.com/ansiblejunky/ansible-project-template)
 - [ansible-inventory-template](https://github.com/ansiblejunky/ansible-inventory-template)
 - [ansible-role-template](https://github.com/ansiblejunky/ansible-role-template)
+- TODO: Collection?
 
 ## Overview
 
@@ -38,27 +39,29 @@ This repository is part of a set of template repositories. Ansible best practice
 
 ## Development Environment
 
-TODO: UPDATE THIS TEXT; move section and files to "development environment" instead of ansible-project-template?
+Do the following steps to enable linting and code syntax highlighting and immediate testing and module help.
 
-- Install Ansible extension
-  - [VSCode Ansible extension](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
+- Enable Ansible Lint
+
+```shell
+# Configure Ansible Lint in your repository
+mkdir -p .config && wget https://raw.githubusercontent.com/ansiblejunky/ansible-project-template/master/.config/ansible-lint.yml -O .config/ansible-lint.yml
+
+# Configure GitHub Actions to trigger Ansible Lint for every push/pull-request
+mkdir -p .github/workflows && wget https://raw.githubusercontent.com/ansiblejunky/ansible-project-template/master/.github/workflows/ansible-lint.yml -O .github/workflows/ansible-lint.yml
+
+# TODO: add info for bit bucket
+
+```
+
+- Install the [VSCode Ansible Extension](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
+
 - Configure Ansible extension
   - Configure the settings for the extension to use your custom execution environment image you built using `ansible-builder`
-  - Adjust the lint rules by creating `.ansible-lint` configuration file in your repository
-  - It requires using `skip_list` otherwise you'll still see red-marked issues in your editor window
-  - `ansible-lint` will leverage the `.yamllint.yml` configuration file to additionally check the yaml rules
-  - If you set `vault_password_file` inside your `ansible.cfg` then you might need to mount your vault password file inside the Execution Environment by setting the `volumeMounts`, for example:
-```json
-      "ansible.executionEnvironment.volumeMounts": [
-            { 
-            "src": "/Users/jwadleig/.ansible_vault_password",
-            "dest": "/home/runner/.ansible_vault_password"
-            }
-      ],
-```
+
 - Using Ansible extension
   - You can show module options as you edit your playbook by enabling [VSCode IntelliSense](https://code.visualstudio.com/docs/editor/intellisense#_intellisense-features): Ctrl+Space
-  - When issues arrise or odd behavior from the Ansible extension, show the VSCode `Output` window (View -> Output menu item) and select `Ansible Server` in the drop down on the right side to see what is happening inside the extension
+  - When issues arrise or odd behavior from the Ansible extension, view the VSCode `Output` window (View -> Output menu item) and select `Ansible Support` in the drop down on the right side to see what is happening inside the extension
   - To log issues with the extension use [vscode-ansible](https://github.com/ansible/vscode-ansible) GitHub repository
 - Generate latest `ansible.cfg` using the [ansible-config](https://docs.ansible.com/ansible/latest/cli/ansible-config.html) tool
 

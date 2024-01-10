@@ -5,7 +5,7 @@
   tasks:
 
     - name: Perform patch for linux servers
-      include_role:
+      ansible.builtin.include_role:
         name: rhel
         tasks_from: patch.yml
       when: ansible_os_family == "rhel"

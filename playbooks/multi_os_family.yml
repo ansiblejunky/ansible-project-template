@@ -5,7 +5,7 @@
 
   tasks:
     - name: Attempt to connect via SSH (port 22)
-      wait_for:
+      ansible.builtin.wait_for:
         host: "{{ item }}"
         port: 22
         timeout: 10
@@ -14,7 +14,7 @@
       with_items: "{{ input_hosts }}"
 
     - name: Attempt to connect via WinRM (port 5985 for HTTP, port 5986 for HTTPS)
-      wait_for:
+      ansible.builtin.wait_for:
         host: "{{ item }}"
         port: 5985
         timeout: 10
@@ -23,14 +23,14 @@
       with_items: "{{ input_hosts }}"
 
     - name: Add hosts to linux group
-      add_host:
+      ansible.builtin.add_host:
         name: "{{ item.item }}"
         groups: linux
       when: not item.failed and item.state = "started"
       with_items: "{{ ssh_connectivity.results }}"
 
     - name: Add hosts to windows group
-      add_host:
+      ansible.builtin.add_host:
         name: "{{ item.item }}"
         groups: windows
       when: not item.failed and item.state = "started"

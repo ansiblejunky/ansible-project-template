@@ -14,4 +14,4 @@
 
 collections:
 
-- name: community.general
+  - name: community.general

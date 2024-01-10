@@ -4,16 +4,16 @@
 
   tasks:
     - name: Perform shutdown for database servers
-      include_role:
+      ansible.builtin.include_role:
         name: postgres
         tasks_from: shutdown.yml
 
     - name: Perform upgrade/install for database servers
-      include_role:
+      ansible.builtin.include_role:
         name: postgres
         tasks_from: install.yml
 
     - name: Perform startup for database servers
-      include_role:
+      ansible.builtin.include_role:
         name: postgres
         tasks_from: startup.yml
