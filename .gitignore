@@ -8,7 +8,7 @@ facts.d
 # retry files
 *.retry
 # logs
-ansible.log
+*.log
 # add local roles but ignore everything else
 roles/*
 !roles/mylocalrole
