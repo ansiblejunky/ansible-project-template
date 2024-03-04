@@ -1,6 +1,8 @@
-# Ansible Lint triggered via GitHub Actions
+# GitHub Action - Run ansible-lint against repository code
 # https://github.com/marketplace/actions/run-ansible-lint
 # https://docs.github.com/en/actions/quickstart
+# Source of truth on this configuration is located here:
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.github/ansible-lint.yml
 
 name: ansible-lint
 on: [push, pull_request]
@@ -9,7 +11,9 @@ jobs:
     name: Ansible Lint
     runs-on: ubuntu-latest
     steps:
+      # Leverages action defined here https://github.com/actions/checkout/blob/main/action.yml
       - name: Checkout repository
         uses: actions/checkout@main
+      # Leverages action defined here https://github.com/ansible/ansible-lint/blob/main/action.yml
       - name: Run ansible-lint
         uses: ansible/ansible-lint@main

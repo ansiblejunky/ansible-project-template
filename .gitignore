@@ -4,16 +4,16 @@
 
 # Ansible
 # facts generated locally based on ansible.cfg settings
-facts.json
+facts.d
 # retry files
 *.retry
 # logs
 ansible.log
 # add local roles but ignore everything else
-content/roles/*
-!content/roles/mylocalrole
-!content/roles/requirements.yml
-content/collections/ansible_collections
+roles/*
+!roles/mylocalrole
+!roles/requirements.yml
+collections/ansible_collections
 
 # Python
 # compiled files

@@ -1,7 +1,7 @@
 ---
 # Configuration for [ansible-lint](https://ansible-lint.readthedocs.io/configuring/#configuration-file)
 # Source of truth on this configuration is located here:
-# https://github.com/ansiblejunky/ansible-project-template/blob/master/.ansible-lint
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.config/ansible-lint.yml
 
 use_default_rules: true
 

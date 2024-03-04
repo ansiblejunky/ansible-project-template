@@ -1,0 +1,6 @@
+# Configuration for Python linter using [flake8](https://ansible-lint.readthedocs.io/configuring/#configuration-file)
+# Source of truth on this configuration is located here:
+# https://github.com/ansiblejunky/ansible-project-template/blob/master/.flake8
+
+[flake8]
+extend-ignore = E203,W292

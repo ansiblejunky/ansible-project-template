@@ -13,8 +13,9 @@
 #   https://docs.ansible.com/ansible/latest/galaxy/user_guide.html#installing-multiple-roles-from-multiple-files
 
 roles:
-
-  - name: role-template
-    src: https://github.com/ansiblejunky/ansible-role-template.git
-    version: master
-    scm: git
+  # Web Server
+  - name: geerlingguy.apache
+  # Application Server
+  - name: geerlingguy.tomcat6
+  # Database Server
+  - name: geerlingguy.postgresql
