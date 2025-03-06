@@ -10,6 +10,7 @@ jobs:
   build:
     name: Ansible Lint
     runs-on: ubuntu-latest
+    environment: ansible-lint
     steps:
       # Leverages action defined here https://github.com/actions/checkout/blob/main/action.yml
       - name: Checkout repository
