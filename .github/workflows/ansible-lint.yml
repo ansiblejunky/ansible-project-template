@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ansible-lint
     container:
+      # https://ansible.readthedocs.io/projects/dev-tools/container/
       image: ghcr.io/ansible/community-ansible-dev-tools:latest
       options: --user root
       ports:
