@@ -15,3 +15,4 @@
 collections:
 
   - name: community.general
+  - name: redhat.rhel_idm

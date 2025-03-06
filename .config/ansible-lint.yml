@@ -5,13 +5,17 @@
 
 use_default_rules: true
 
+exclude_paths:
+  - collections/ansible_collections
+  - .ansible
+
 skip_list:
-  - yaml[new-line-at-end-of-file]
   - yaml[colons]
   - name[casing]
 
 warn_list:
   - name[missing]
+  - yaml[new-line-at-end-of-file]
   - name[play]
   - fqcn-builtins
   - yaml[document-start]

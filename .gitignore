@@ -14,6 +14,7 @@ roles/*
 !roles/mylocalrole
 !roles/requirements.yml
 collections/ansible_collections
+.ansible
 
 # Python
 # compiled files
