@@ -7,6 +7,29 @@
 name: ansible-lint
 on: [push, pull_request]
 jobs:
+  test:
+    name: container-linter
+    runs-on: ubuntu-latest
+    environment: ansible-lint
+    container:
+      image: ghcr.io/ansible/community-ansible-dev-tools:latest
+      options: --user root
+      ports:
+        - 80
+      env:
+        ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN: ${{ secrets.ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN }}
+        ANSIBLE_GALAXY_SERVER_CERTIFIED_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_CERTIFIED_URL }}
+        ANSIBLE_GALAXY_SERVER_CERTIFIED_AUTH_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_CERTIFIED_AUTH_URL }}
+        ANSIBLE_GALAXY_SERVER_VALIDATED_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_VALIDATED_URL }}
+        ANSIBLE_GALAXY_SERVER_VALIDATED_AUTH_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_VALIDATED_AUTH_URL }}
+        ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN: ${{ secrets.ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN }}
+        ANSIBLE_GALAXY_SERVER_COMMUNITY_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_COMMUNITY_URL }}
+        ANSIBLE_GALAXY_SERVER_LIST: ${{ vars.ANSIBLE_GALAXY_SERVER_LIST }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Run ansible-lint
+        run: ansible-lint -v -c .config/ansible-lint.yml .
   build:
     name: Ansible Lint
     runs-on: ubuntu-latest
