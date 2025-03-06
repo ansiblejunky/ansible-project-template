@@ -30,23 +30,23 @@ jobs:
         uses: actions/checkout@main
       - name: Run ansible-lint
         run: ansible-lint
-  build:
-    name: Ansible Lint
-    runs-on: ubuntu-latest
-    environment: ansible-lint
-    steps:
-      # Leverages action defined here https://github.com/actions/checkout/blob/main/action.yml
-      - name: Checkout repository
-        uses: actions/checkout@main
-      # Leverages action defined here https://github.com/ansible/ansible-lint/blob/main/action.yml
-      - name: Run ansible-lint
-        uses: ansible/ansible-lint@main
-        env:
-          ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN: ${{ secrets.ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN }}
-          ANSIBLE_GALAXY_SERVER_CERTIFIED_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_CERTIFIED_URL }}
-          ANSIBLE_GALAXY_SERVER_CERTIFIED_AUTH_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_CERTIFIED_AUTH_URL }}
-          ANSIBLE_GALAXY_SERVER_VALIDATED_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_VALIDATED_URL }}
-          ANSIBLE_GALAXY_SERVER_VALIDATED_AUTH_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_VALIDATED_AUTH_URL }}
-          ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN: ${{ secrets.ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN }}
-          ANSIBLE_GALAXY_SERVER_COMMUNITY_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_COMMUNITY_URL }}
-          ANSIBLE_GALAXY_SERVER_LIST: ${{ vars.ANSIBLE_GALAXY_SERVER_LIST }}
+  # test:
+  #   name: ansible-lint
+  #   runs-on: ubuntu-latest
+  #   environment: ansible-lint
+  #   steps:
+  #     # Leverages action defined here https://github.com/actions/checkout/blob/main/action.yml
+  #     - name: Checkout repository
+  #       uses: actions/checkout@main
+  #     # Leverages action defined here https://github.com/ansible/ansible-lint/blob/main/action.yml
+  #     - name: Run ansible-lint
+  #       uses: ansible/ansible-lint@main
+  #       env:
+  #         ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN: ${{ secrets.ANSIBLE_GALAXY_SERVER_CERTIFIED_TOKEN }}
+  #         ANSIBLE_GALAXY_SERVER_CERTIFIED_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_CERTIFIED_URL }}
+  #         ANSIBLE_GALAXY_SERVER_CERTIFIED_AUTH_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_CERTIFIED_AUTH_URL }}
+  #         ANSIBLE_GALAXY_SERVER_VALIDATED_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_VALIDATED_URL }}
+  #         ANSIBLE_GALAXY_SERVER_VALIDATED_AUTH_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_VALIDATED_AUTH_URL }}
+  #         ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN: ${{ secrets.ANSIBLE_GALAXY_SERVER_VALIDATED_TOKEN }}
+  #         ANSIBLE_GALAXY_SERVER_COMMUNITY_URL: ${{ vars.ANSIBLE_GALAXY_SERVER_COMMUNITY_URL }}
+  #         ANSIBLE_GALAXY_SERVER_LIST: ${{ vars.ANSIBLE_GALAXY_SERVER_LIST }}
