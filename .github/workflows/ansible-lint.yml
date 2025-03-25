@@ -1,9 +1,14 @@
-# Run automated code quality tests using Ansible Lint
-#   https://github.com/marketplace/actions/run-ansible-lint
-# GitHub Action
+# NAME: Github Workflow for Ansible Lint Code Quality Testing
 #   https://docs.github.com/en/actions/quickstart
-# Source of truth on this configuration is located here:
+# DESCRIPTION: This workflow will run ansible-lint on the codebase.
+# It will additionally cache the `.ansible` folder, which
+# Ansible Lint generates to store the downloaded roles and collections,
+# which will speed up subsequent runs. It is triggered on push as well as
+# pull requests to the repository.
+#   https://github.com/marketplace/actions/run-ansible-lint
+# SOURCE: Source of truth on this configuration is located here:
 #   https://github.com/ansiblejunky/ansible-project-template/blob/master/.github/ansible-lint.yml
+# OWNER: John Wadleigh
 
 name: ansible-lint
 on: [push, pull_request]
