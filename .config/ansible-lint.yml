@@ -47,17 +47,3 @@ enable_list:
 # Warnings are useful as they show up in Pull Requests but can be ignored
 # warn_list:
 #   - name[missing]
-#   - yaml[new-line-at-end-of-file]
-#   - name[play]
-#   - fqcn-builtins
-#   - yaml[document-start]
-#   - yaml[brackets]
-#   - yaml[braces]
-#   - yaml[commas]
-#   - yaml[comments]
-#   - yaml[comments-indentation]
-#   - yaml[empty-lines]
-#   - yaml[hyphens]
-#   - yaml[indentation]
-#   - yaml[line-length]
-#   - yaml[truthy]
