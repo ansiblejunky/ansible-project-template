@@ -1,3 +1,4 @@
+---
 # NAME: Github Workflow for Ansible Lint Code Quality Testing
 #   https://docs.github.com/en/actions/quickstart
 # DESCRIPTION: This workflow will run ansible-lint on the codebase.

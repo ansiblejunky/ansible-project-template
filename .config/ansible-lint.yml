@@ -8,7 +8,6 @@
 # You can ignore pre-existing issues by generating the ignore rules file `ansible-lint --generate-ignore`
 #   https://ansible.readthedocs.io/projects/lint/configuring/#ignoring-rules-for-entire-files
 
-
 # Select appropriate profile for your project
 # https://ansible.readthedocs.io/projects/lint/profiles/
 profile: production # null, min, basic, moderate, safety, shared, production

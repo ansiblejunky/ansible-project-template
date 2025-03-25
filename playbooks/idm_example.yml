@@ -2,11 +2,11 @@
 - hosts: all
   become: false
   gather_facts: false
-  
+
   tasks:
     - name: Ensure host is present without DNS
       redhat.rhel_idm.ipahost:
         ipaadmin_password: SomeADMINpassword
         name: host02.example.com
         description: Example host
-        force: yes
+        force: true

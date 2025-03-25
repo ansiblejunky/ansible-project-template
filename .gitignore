@@ -1,13 +1,9 @@
-# gitignore settings
-# Source of truth on this configuration is located here:
-# https://github.com/ansiblejunky/ansible-project-template/blob/master/.gitignore
+# NAME: git ignore settings
+# SOURCE: Source of truth on this configuration is located here:
+#   https://github.com/ansiblejunky/ansible-project-template/blob/master/.gitignore
 
 # Ansible
-# facts generated locally based on ansible.cfg settings
-facts.d
-# retry files
 *.retry
-# logs
 *.log
 # add local roles but ignore everything else
 roles/*
@@ -17,9 +13,7 @@ collections/ansible_collections
 .ansible
 
 # Python
-# compiled files
 *.pyc
-# pyenv configuration
 .python-version
 .vscode
 .DS_Store

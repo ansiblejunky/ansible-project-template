@@ -9,26 +9,35 @@ This repository is a template for an `Ansible Project` that includes the typical
 - [hosts](./hosts/) folder contains Ansible inventory and configuration management with group variables
 - [plugins](./plugins/) folder contains custom Ansible plugins for inventory, filter, action, callback, and so on
 - [playbooks](./playbooks/) folder contains Ansible Playbooks to perform actions
-- Continuous Testing is performed using various linting tools
+- Code Quality Tests are performed using various linting tools
   - Ansible Lint
   - Flake8 for Python linting
   - PyLint for Python linting
 
-## Running Playbooks
+## Examples
 
-Using `Ansible Playbook`:
+Use this repository to run some of the following useful commands:
 
 ```shell
-ansible-playbook -i hosts/dev/inventory playbooks/example.yml
+# Using ansible-playbook command
+ansible-playbook -i hosts/dev/inventory playbooks/aap_content.yml
+# Using ansible-navigator command - [ansible-navigator demo](https://www.youtube.com/watch?v=J9PBKi8ydi4)
+ansible-navigator run -i hosts/dev/inventory playbooks/aap_content.yml
+
+# Linting current project using ansible-lint
+ansible-lint
+# Linting current project using ansible-navigator
+ansible-navigator lint $CWD
+# Fix linting errors
+ansible-lint --fix
+
+# Check configuration inside image using ansible-navigator
+ansible-navigator config dump
+# Check collections using interactive mode
+ansible-navigator collections --mode=interactive
 ```
 
-Using `Ansible Navigator`:
-
-- [ansible-navigator demo](https://www.youtube.com/watch?v=J9PBKi8ydi4)
-
-TODO: Add command using latest EE image
-
-Using `Ansible Automation Platform (AAP)`:
+## Using Ansible Automation Platform (AAP)
 
 TODO: Create a playbook to create objects in AAP!
 
@@ -46,11 +55,6 @@ TODO: Create a playbook to create objects in AAP!
   - Set the Project
   - Set the Playbook
   - Set the Credentials
-
-## References
-
-- [The Inside Playbook - USING ANSIBLE AND ANSIBLE TOWER WITH SHARED ROLES](https://www.ansible.com/blog/using-ansible-and-ansible-tower-with-shared-roles)
-- [Rolling Updates, Performance, Strategies](https://docs.ansible.com/ansible/latest/user_guide/playbooks_strategies.html)
 
 ## License
 
