@@ -3,6 +3,7 @@
 #   export ANSIBLE_GALAXY_SERVER_TOKEN=<your_token>
 #   source galaxy.sh
 #   ansible-lint
+#   ansible-lint --fix
 
 if [[ -z "${ANSIBLE_GALAXY_SERVER_TOKEN}" ]]; then
   echo "Environment Variable 'ANSIBLE_GALAXY_SERVER_TOKEN' is not set"

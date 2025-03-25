@@ -1,0 +1,6 @@
+# This file contains ignores rule violations for ansible-lint
+playbooks/aap_content.yml syntax-check[empty-playbook]
+playbooks/idm_example.yml name[play]
+playbooks/idm_example.yml yaml[new-line-at-end-of-file]
+playbooks/idm_example.yml yaml[trailing-spaces]
+playbooks/idm_example.yml yaml[truthy]

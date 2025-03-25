@@ -1,40 +1,63 @@
 ---
-# Configuration for [ansible-lint](https://ansible-lint.readthedocs.io/configuring/#configuration-file)
+# Configuration for Ansible Lint
+#   https://ansible-lint.readthedocs.io/configuring/#configuration-file)
 # Source of truth on this configuration is located here:
-# https://github.com/ansiblejunky/ansible-project-template/blob/master/.config/ansible-lint.yml
+#   https://github.com/ansiblejunky/ansible-project-template/blob/master/.config/ansible-lint.yml
+# You can auto fix some issues with `ansible-lint --fix`
+#   https://ansible.readthedocs.io/projects/lint/autofix/
+# You can ignore pre-existing issues by generating the ignore rules file `ansible-lint --generate-ignore`
+#   https://ansible.readthedocs.io/projects/lint/configuring/#ignoring-rules-for-entire-files
 
-use_default_rules: true
 
+# Select appropriate profile for your project
+# https://ansible.readthedocs.io/projects/lint/profiles/
+profile: production # null, min, basic, moderate, safety, shared, production
+
+# Produce clean output for parsing; default is false
+parseable: true
+
+# Remove summary of results and produce simpler output; default is false
+quiet: true
+
+# Display verbose messages; 0 (normal); 1 (verbose)
+verbosity: 0
+
+# Exclude paths from linting
 exclude_paths:
   - collections/ansible_collections
   - .ansible
 
-skip_list:
-  - yaml[colons]
-  - name[casing]
+# Ansible Lint does not automatically load rules that have the 'opt-in' tag.
+# You must enable opt-in rules by listing each rule 'id' below.
+# You can discover these rules by running `ansible-lint -L | grep opt-in -B 1`
+enable_list:
+  - args
+  - empty-string-compare # opt-in
+  - no-log-password # opt-in
+  - no-same-owner # opt-in
+  - name[prefix] # opt-in
+  - galaxy-version-incorrect # opt-in
+  - yaml # force opt-in
 
-warn_list:
-  - name[missing]
-  - yaml[new-line-at-end-of-file]
-  - name[play]
-  - fqcn-builtins
-  - yaml[document-start]
-  - yaml[brackets]
-  - yaml[braces]
-  - yaml[commas]
-  - yaml[comments]
-  - yaml[comments-indentation]
-  - yaml[empty-lines]
-  - yaml[hyphens]
-  - yaml[indentation]
-  - yaml[line-length]
-  - yaml[truthy]
+# Skip rules that are not applicable to your project
+# skip_list:
+#   - yaml[colons]
+#   - name[casing]
 
-# parseable output in the format of pep8
-parseable: true
-
-# quieter, although not silent output
-quiet: false
-
-# verbosity setting (currently 0 and 1 are supported; displays `examining file` messages
-verbosity: 0
+# Warnings are useful as they show up in Pull Requests but can be ignored
+# warn_list:
+#   - name[missing]
+#   - yaml[new-line-at-end-of-file]
+#   - name[play]
+#   - fqcn-builtins
+#   - yaml[document-start]
+#   - yaml[brackets]
+#   - yaml[braces]
+#   - yaml[commas]
+#   - yaml[comments]
+#   - yaml[comments-indentation]
+#   - yaml[empty-lines]
+#   - yaml[hyphens]
+#   - yaml[indentation]
+#   - yaml[line-length]
+#   - yaml[truthy]
