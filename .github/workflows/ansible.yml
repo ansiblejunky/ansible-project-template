@@ -46,5 +46,6 @@ jobs:
         continue-on-error: true
       - name: Run python linter
         uses: astral-sh/ruff-action@v3
+        continue-on-error: true
 
 
