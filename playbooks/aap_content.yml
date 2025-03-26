@@ -1,2 +1,20 @@
 # Create base Ansible Automation Platform content to run a Job Template
 # using this repository.
+- name: Create AAP Content
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create AAP Content
+      awx.awx.job_template:
+        tower_config_file: "{{ lookup('env', 'HOME') }}/.tower_cli.cfg"
+        name: "AAP Content"
+        job_type: "run"
+        inventory: "Demo Inventory"
+        project: "Demo Project"
+        playbook: "aap_content.yml"
+        credential: "Demo Credential"
+        state: "present"
+      register: job_template
+    - name: Debug Job Template
+      ansible.builtin.debug:
+        var: job_template
