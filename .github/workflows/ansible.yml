@@ -45,5 +45,5 @@ jobs:
         run: ansible-lint
       - name: Run python linter
         uses: astral-sh/ruff-action@v3
-        if: always()
+        if: success() || failure()
 
