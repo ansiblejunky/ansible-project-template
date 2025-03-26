@@ -11,7 +11,7 @@
 #   https://github.com/ansiblejunky/ansible-project-template/blob/master/.github/ansible-lint.yml
 # OWNER: John Wadleigh
 
-name: ansible-lint
+name: ansible
 on: [push, pull_request]
 jobs:
   test:
@@ -35,7 +35,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@main
-      - name: Cache content # https://github.com/actions/cache
+      - name: Cache content
         id: cache-action
         uses: actions/cache@v4
         with:
