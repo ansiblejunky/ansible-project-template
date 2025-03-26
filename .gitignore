@@ -17,3 +17,4 @@ collections/ansible_collections
 .python-version
 .vscode
 .DS_Store
+.ruff_cache

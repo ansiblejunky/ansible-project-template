@@ -14,6 +14,12 @@ This repository is a template for an `Ansible Project` that includes the typical
   - Flake8 for Python linting
   - PyLint for Python linting
 
+Recommended `Visual Studio Code` extensions that help to manage this repository:
+
+- Ansible
+- Ruff
+- Even Better TOML
+
 ## Examples
 
 Use this repository to run some of the following useful commands:
@@ -30,6 +36,12 @@ ansible-lint
 ansible-navigator lint $CWD
 # Fix linting errors
 ansible-lint --fix
+# Linting Python files (modules, plugins, etc)
+ruff check
+# Fixing Python linting errors
+ruff check --fix
+# Format Python files correctly
+ruff format <python file>
 
 # Check configuration inside image using ansible-navigator
 ansible-navigator config dump
