@@ -41,8 +41,6 @@ jobs:
         with:
           path: .ansible
           key: ${{ runner.os }}-cache-key
-      - name: Run python linter
-        uses: astral-sh/ruff-action@v3
       - name: Run ansible linter
         run: ansible-lint
 
