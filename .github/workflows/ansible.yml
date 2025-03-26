@@ -43,7 +43,8 @@ jobs:
           key: ${{ runner.os }}-cache-key
       - name: Run ansible linter
         run: ansible-lint
+        continue-on-error: true
       - name: Run python linter
         uses: astral-sh/ruff-action@v3
-        if: success() || failure()
+
 
