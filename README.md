@@ -11,8 +11,7 @@ This repository is a template for an `Ansible Project` that includes the typical
 - [playbooks](./playbooks/) folder contains Ansible Playbooks to perform actions
 - Code Quality Tests are performed using various linting tools
   - Ansible Lint
-  - Flake8 for Python linting
-  - PyLint for Python linting
+  - Ruff for Python linting
 
 Recommended `Visual Studio Code` extensions that help to manage this repository:
 
