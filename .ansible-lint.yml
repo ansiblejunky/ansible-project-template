@@ -2,7 +2,7 @@
 # Configuration for Ansible Lint
 #   https://ansible-lint.readthedocs.io/configuring/#configuration-file)
 # Source of truth on this configuration is located here:
-#   https://github.com/ansiblejunky/ansible-project-template/blob/master/.config/ansible-lint.yml
+#   https://github.com/ansiblejunky/ansible-project-template/blob/master/ansible-lint.yml
 # You can auto fix some issues with `ansible-lint --fix`
 #   https://ansible.readthedocs.io/projects/lint/autofix/
 # You can ignore pre-existing issues by generating the ignore rules file `ansible-lint --generate-ignore`
