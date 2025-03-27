@@ -1,3 +1,8 @@
-# This file contains ignores rule violations for ansible-lint
+# NAME: Ansible Lint ignore file
+# DESC: This file contains rules that should be ignored by ansible-lint
+#       when running against the playbooks in this repository.
+# SOURCE: Source of truth on this configuration is located here:
+#   https://github.com/ansiblejunky/ansible-project-template/blob/master/.ansible-lint-ignore
+
 playbooks/aap_content.yml syntax-check[empty-playbook]
 playbooks/idm_example.yml name[play]

@@ -1,9 +1,11 @@
 #!/bin/bash
-# Installing Ansible Collections locally:
+# NAME: Prepare environment vars for installing Ansible Collections locally:
 #   export ANSIBLE_GALAXY_SERVER_TOKEN=<your_token>
 #   source galaxy.sh
 #   ansible-lint
 #   ansible-lint --fix
+# SOURCE: Source of truth on this configuration is located here:
+#   https://github.com/ansiblejunky/ansible-project-template/blob/master/galaxy.sh
 
 if [[ -z "${ANSIBLE_GALAXY_SERVER_TOKEN}" ]]; then
   echo "Environment Variable 'ANSIBLE_GALAXY_SERVER_TOKEN' is not set"
