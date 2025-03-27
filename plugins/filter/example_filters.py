@@ -1,16 +1,16 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
-class FilterModule(object):
+class FilterModule:
     def filters(self):
         return {
-            'a_filter': self.a_filter,
-            'another_filter': self.b_filter
+            "a_filter": self.a_filter,
+            "another_filter": self.b_filter,
         }
 
-    def a_filter(self, a_variable):
-        a_new_variable = a_variable + ' CRAZY NEW FILTER'
+    def a_filter(self, a_variable: str) -> str:
+        a_new_variable = a_variable + " CRAZY NEW FILTER"
         return a_new_variable
 
-    def b_filter(self, a_variable, another_variable, yet_another_variable):
-        a_new_variable = a_variable + ' - ' + another_variable + ' - ' + yet_another_variable
+    def b_filter(self, a_variable: str, another_variable: str, yet_another_variable: str) -> str:
+        a_new_variable = a_variable + " - " + another_variable + " - " + yet_another_variable
         return a_new_variable

@@ -8,7 +8,7 @@
 # pull requests to the repository.
 #   https://github.com/marketplace/actions/run-ansible-lint
 # SOURCE: Source of truth on this configuration is located here:
-#   https://github.com/ansiblejunky/ansible-project-template/blob/master/.github/ansible-lint.yml
+#   https://github.com/ansiblejunky/ansible-project-template/blob/master/.github/workflows/ansible.yml
 # OWNER: John Wadleigh
 
 name: ansible
@@ -47,4 +47,3 @@ jobs:
       - name: Run python linter
         uses: astral-sh/ruff-action@v3
         if: success() || failure()
-

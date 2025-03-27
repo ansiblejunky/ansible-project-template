@@ -1,3 +1,4 @@
+---
 # Create base Ansible Automation Platform content to run a Job Template
 # using this repository.
 - name: Create AAP Content

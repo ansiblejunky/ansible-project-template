@@ -7,38 +7,15 @@
 # SOURCE: Source of truth on this configuration is located here:
 #   https://github.com/ansiblejunky/ansible-project-template/blob/master/.ruff.toml
 
+line-length = 120
+
 [lint]
-select = [
-    "N", # pep8-naming
-    "PL", # pylint
-    "F", # pyflakes
-    "B", # flake8-bugbear
-    "G", # flake8-logging-format
-    "BLE", # flake8-blind-except
-    "C4", # flake8-comprehensions
-    "T10", # flake8-debugger
-    "Q", # flake8-quotes
-    "SIM", # flake8-simplify
-    "RET", # flake8-return
-    "A", # flake8-builtins
-    "ISC", # flake8-implicit-str-concat
-    "ARG", # flake8-unused-arguments
-    "SLF", # flake8-self
-    "S", # flake8-bandit
-    "PIE", # flake8-pie
-    "COM", # flake8-commas
-    "TID", # flake8-tidy-imports
-    "E", # pycodestyle error
-    "W", # pycodestyle warning
-    "D", # pydocstyle
-    "I", # isort
-    "TRY", # tryceratops
-    "C90", # mccabe
-]
+select = ["ALL"]
 extend-select = [
     "UP", # pyupgrade
 ]
 ignore = [
     "D203", # incorrect-blank-line-before-class duplicate of D2111
     "D212", # multi-line docstring summary should start at the first line duplicate of D213
+    "EXE001", # file-not-executable
 ]
