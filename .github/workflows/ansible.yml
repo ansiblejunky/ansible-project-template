@@ -17,7 +17,7 @@ jobs:
   test:
     name: container-linter
     runs-on: ubuntu-latest
-    environment: ansible-lint
+    environment: ansible-lint # create environment in the repository settings
     container:
       image: ghcr.io/ansible/community-ansible-dev-tools:latest # https://ansible.readthedocs.io/projects/dev-tools/container/
       options: --user root
