@@ -20,6 +20,5 @@
     - name: Debug Job Template
       ansible.builtin.debug:
         var: job_template
-
-    - ansible.builtin.debug:
-        msg: "Lint error"
+        verbosity: 2
+      when: job_template is defined
