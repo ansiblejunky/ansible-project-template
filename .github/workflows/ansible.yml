@@ -12,7 +12,11 @@
 # OWNER: John Wadleigh
 
 name: ansible
-on: [push, pull_request]
+on:
+  pull_request:
+    branches:
+      - main
+  push:
 jobs:
   test:
     name: container-linter
