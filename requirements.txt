@@ -1,3 +1,2 @@
 # Python requirements
-ansible-dev-tools
 ruff

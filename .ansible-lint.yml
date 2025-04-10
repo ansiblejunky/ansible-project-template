@@ -39,10 +39,13 @@ enable_list:
   - yaml # force opt-in
 
 # Skip rules that are not applicable to your project
-# skip_list:
-#   - yaml[colons]
-#   - name[casing]
+skip_list:
+  - yaml[colons]
+  - name[casing]
+  - yaml[comments]
+  - name[template]
 
 # Warnings are useful as they show up in Pull Requests but can be ignored
-# warn_list:
-#   - name[missing]
+warn_list:
+  - name[missing]
+  - var-naming[no-role-prefix]

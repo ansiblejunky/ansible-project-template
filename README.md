@@ -24,6 +24,10 @@ Recommended `Visual Studio Code` extensions that help to manage this repository:
 Use this repository to run some of the following useful commands:
 
 ```shell
+# Ansible Dev Tools https://ansible.readthedocs.io/projects/dev-tools/
+pip install ansible-dev-tools
+adt --version
+
 # Using ansible-playbook command
 ansible-playbook -i hosts/dev/inventory playbooks/aap_content.yml
 # Using ansible-navigator command - [ansible-navigator demo](https://www.youtube.com/watch?v=J9PBKi8ydi4)
@@ -35,10 +39,17 @@ ansible-lint
 ansible-navigator lint $CWD
 # Fix linting errors
 ansible-lint --fix
+# Generate ignore file
+ansible-lint --generate-ignore
+
 # Linting Python files (modules, plugins, etc)
 ruff check
 # Fixing Python linting errors
 ruff check --fix
+# Show statistics to show counts for every rule
+ruff check --statistics
+# List python files detected
+ruff check --show-files
 # Format Python files correctly
 ruff format <python file>
 
