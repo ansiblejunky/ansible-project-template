@@ -41,6 +41,11 @@ jobs:
         with:
           path: .ansible
           key: ${{ runner.os }}-cache-key
+      - name: Install python dependencies
+        uses: BSFishy/pip-action@v1
+        with:
+          requirements: requirements.txt
+        if: success() || failure()
       - name: Run ansible linter
         run: ansible-lint
         if: success() || failure()

@@ -16,6 +16,10 @@
         credential: "Demo Credential"
         state: "present"
       register: job_template
+
     - name: Debug Job Template
       ansible.builtin.debug:
         var: job_template
+
+    - ansible.builtin.debug:
+        msg: "Lint error"

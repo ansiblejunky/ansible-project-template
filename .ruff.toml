@@ -14,8 +14,23 @@ select = ["ALL"]
 extend-select = [
     "UP", # pyupgrade
 ]
+exclude = [
+    ".github" # exclude directory from linting
+]
 ignore = [
+    "D100", # undocumented-public-module
+    "D101", # docstring-missing-public-class
+    "D102", # docstring-missing-public-method
+    "D103", # undocumented-public-function
+    "D200", # one-liner-docstring-blank-line-after
     "D203", # incorrect-blank-line-before-class duplicate of D2111
     "D212", # multi-line docstring summary should start at the first line duplicate of D213
+    "D400", # docstring-ends-in-period
+    "D415", # docstring-missing-terminal-punctuation
     "EXE001", # file-not-executable
+    "ANN001", # missing-return-type
+    "ANN201", # missing-return-type-undocumented-public-function
+    "C408", # unnecessary-collection-call
+    "BLE001", # blind-except
+    "ERA001", # commented-out-code
 ]
