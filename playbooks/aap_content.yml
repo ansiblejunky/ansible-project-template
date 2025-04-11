@@ -21,4 +21,4 @@
       ansible.builtin.debug:
         var: job_template
         verbosity: 2
-      when: job_template is defined
+      when: job_template is defined 
