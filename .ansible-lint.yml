@@ -34,7 +34,6 @@ enable_list:
   - empty-string-compare # opt-in
   - no-log-password # opt-in
   - no-same-owner # opt-in
-  - name[prefix] # opt-in
   - galaxy-version-incorrect # opt-in
   - yaml # force opt-in
 
