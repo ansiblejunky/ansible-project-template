@@ -5,16 +5,11 @@
 # Ansible
 *.retry
 *.log
-# add local roles but ignore everything else
-roles/*
-!roles/mylocalrole
-!roles/requirements.yml
 collections/ansible_collections
 .ansible
 
 # Python
 *.pyc
 .python-version
-.vscode
 .DS_Store
 .ruff_cache
