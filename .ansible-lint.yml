@@ -12,9 +12,6 @@
 # https://ansible.readthedocs.io/projects/lint/profiles/
 profile: production # null, min, basic, moderate, safety, shared, production
 
-# Produce clean output for parsing; default is false
-parseable: true
-
 # Remove summary of results and produce simpler output; default is false
 quiet: true
 
